@@ -1,0 +1,13 @@
+ol { color:grey }
+
+.liOne { 
+    text-align:center; 
+}
+.liTwo { 
+    text-align:right;
+}
+
+p.pTwoFour{ 
+    text-align:right;
+    background-color: #7FFF00;
+}
