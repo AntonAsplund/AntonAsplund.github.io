@@ -1,0 +1,52 @@
+
+
+.table {
+    border-style: solid;
+    border-color: grey;
+    background-color: lightcyan;
+}
+
+.trRowHead {
+    border-style: dashed;
+    border-Color: brown;
+    background-color: yellow;
+    text-align:center;
+}
+
+.tdRow {
+    border-style: dotted;
+    border-color: grey;
+}
+
+.tdRowGold {
+    border-style: dotted;
+    border-color: grey;
+    background-color: Gold;
+    text-align:center;
+}
+.tdRowSilver {
+    border-style: dotted;
+    border-color: grey;
+    background-color: silver;
+    text-align:center;
+}
+
+.tdRowBronze {
+    border-style: dotted;
+    border-color: grey;
+    background-color: coral;
+    text-align:center;
+}
+
+.tdRowPlacement {
+    border-style: dotted;
+    border-color: grey;
+    text-align:center;
+}
+
+.tdRowLast {
+    border-style: dotted;
+    border-color: grey;
+    text-align: right;
+}
+
