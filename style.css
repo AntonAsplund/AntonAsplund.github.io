@@ -3,3 +3,22 @@ a.button {
     text-decoration-color: black;
     border: double;
 }
+
+img.FrontImage {
+    max-width: 20em;
+    max-height: 20em;
+    position: relative;
+}
+
+p.PersonInfo{
+    position: absolute;
+    left: 18em;
+    top: 5em;
+    max-width: 20em;
+}
+
+h1 {
+    left: 4em;
+    position: relative;
+    border-bottom: double;
+}
