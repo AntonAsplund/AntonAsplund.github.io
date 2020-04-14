@@ -13,12 +13,21 @@ img.FrontImage {
 p.PersonInfo{
     position: absolute;
     left: 18em;
-    top: 5em;
+    top: 4em;
     max-width: 20em;
 }
 
 h1 {
-    left: 4em;
+    left: 0em;
     position: relative;
     border-bottom: double;
+    max-width: 5em;
+}
+
+td.FirstRow{
+    text-decoration: underline;
+}
+
+.TemporaryImportance{
+    color: red;
 }
