@@ -20,8 +20,7 @@ ul li .hiddenArea{
 }
 
 ul li:hover .hiddenArea{
-    display: block;
-    
+    display: block;    
 }
 
 ul li .hiddenArea li{
