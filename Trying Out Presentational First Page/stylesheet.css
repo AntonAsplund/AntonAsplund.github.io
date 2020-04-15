@@ -10,6 +10,8 @@
     position: absolute;
     right: 10em;
     border-radius: 50%;
+    border: 5px solid;
+    border-color:#00FF66 ;
 }
 
 @-webkit-keyframes roll-in-left {
@@ -24,7 +26,7 @@
       opacity: 1;
     }
   }
-  @keyframes roll-in-left {
+@keyframes roll-in-left {
     0% {
       -webkit-transform: translateX(10em) rotate(-540deg);
               transform: translateX(10em) rotate(-540deg);
