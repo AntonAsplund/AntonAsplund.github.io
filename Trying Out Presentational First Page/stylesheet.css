@@ -9,6 +9,7 @@
     width: 20em;
     position: absolute;
     right: 10em;
+    border-radius: 50%;
 }
 
 @-webkit-keyframes roll-in-left {
