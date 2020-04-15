@@ -1,0 +1,12 @@
+
+
+.hiddenArea{
+    position: absolute;
+    display: none;
+}
+
+ul li:hover .hiddenArea{
+    display: block;
+    position: relative;
+    left: 2em;
+}
