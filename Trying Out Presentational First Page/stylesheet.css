@@ -3,7 +3,7 @@
 }
 
 .roll-in-left {
-	-webkit-animation: roll-in-left 1.6s ease-out both;
+    -webkit-animation: roll-in-left 10.6s ease-out both;
             animation: roll-in-left 1.6s ease-out both;
     height: 20em;
     width: 20em;
@@ -14,8 +14,8 @@
 
 @-webkit-keyframes roll-in-left {
     0% {
-      -webkit-transform: translateX(-800px) rotate(-540deg);
-              transform: translateX(-800px) rotate(-540deg);
+      -webkit-transform: translateX(10em) rotate(-540deg);
+              transform: translateX(10em) rotate(-540deg);
       opacity: 0;
     }
     100% {
@@ -26,8 +26,8 @@
   }
   @keyframes roll-in-left {
     0% {
-      -webkit-transform: translateX(-800px) rotate(-540deg);
-              transform: translateX(-800px) rotate(-540deg);
+      -webkit-transform: translateX(10em) rotate(-540deg);
+              transform: translateX(10em) rotate(-540deg);
       opacity: 0;
     }
     100% {
