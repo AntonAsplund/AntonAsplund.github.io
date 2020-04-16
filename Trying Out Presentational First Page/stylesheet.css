@@ -70,8 +70,7 @@ body{
   animation: type 4s steps(40, end);
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-  position: absolute;
-  top: 14em;
+  position: relative;
 }
 
 .css-typing p:nth-child(2) {
@@ -83,8 +82,7 @@ body{
   animation-delay: 4s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-  position: absolute;
-  top: 16em;
+  position: relative;
 }
 
 .css-typing p:nth-child(3) {
@@ -96,12 +94,11 @@ body{
   animation-delay: 8s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-  position: absolute;
-  top: 18em;
+  position: relative;
 }
 
 .css-typing p:nth-child(4) {
-  width: 70em;
+  width: 42em;
   opacity: 0;
   -webkit-animation: type2 4s steps(40, end);
   animation: type2 4s steps(40, end);
@@ -109,8 +106,18 @@ body{
   animation-delay: 12s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-  position: absolute;
-  top: 20em;
+  position: relative;
+}
+.css-typing p:nth-child(5) {
+  width: 30em;
+  opacity: 0;
+  -webkit-animation: type2 4s steps(40, end);
+  animation: type2 4s steps(40, end);
+  -webkit-animation-delay: 16s;
+  animation-delay: 16s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  position: relative;
 }
 
 @keyframes type {
