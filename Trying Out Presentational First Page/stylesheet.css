@@ -41,33 +41,10 @@ h1 {
   }
 }
 
-@-webkit-keyframes roll-in-left {
-    0% {
-      -webkit-transform: translateX(10em) rotate(-540deg);
-              transform: translateX(10em) rotate(-540deg);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateX(0) rotate(0deg);
-              transform: translateX(0) rotate(0deg);
-      opacity: 1;
-    }
-  }
-@keyframes roll-in-left {
-    0% {
-      -webkit-transform: translateX(10em) rotate(-540deg);
-              transform: translateX(10em) rotate(-540deg);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateX(0) rotate(0deg);
-              transform: translateX(0) rotate(0deg);
-      opacity: 1;
-    }
-  }
 
   /* Google Fonts */
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+@import url(https://fonts.googleapis.com/css?family=sintony);
 
 /* Global */
 html{
@@ -85,22 +62,23 @@ body{
 
 .css-typing p {
   border-right: .15em solid #00FF66;
-  font-family: "Courier";
-  font-size: 1.5em;
+  font-family: "sintony";
+  font-size: 2em;
   white-space: nowrap;
   overflow: hidden;
+  left: 5em;
 }
 .css-typing p:nth-child(1) {
-  width: 52em;
-  -webkit-animation: type 4s steps(40, end);
-  animation: type 4s steps(40, end);
+  width: 34em;
+  -webkit-animation: type 4s steps(70, end);
+  animation: type 4s steps(70, end);
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   position: relative;
 }
 
 .css-typing p:nth-child(2) {
-  width: 48em;
+  width: 33em;
   opacity: 0;
   -webkit-animation: type2 4s steps(70, end);
   animation: type2 4s steps(70, end);
@@ -112,10 +90,10 @@ body{
 }
 
 .css-typing p:nth-child(3) {
-  width: 35em;
+  width: 25em;
   opacity: 0;
-  -webkit-animation: type2 4s steps(40, end);
-  animation: type2 4s steps(40, end);
+  -webkit-animation: type2 4s steps(60, end);
+  animation: type2 4s steps(60, end);
   -webkit-animation-delay: 8s;
   animation-delay: 8s;
   -webkit-animation-fill-mode: forwards;
@@ -124,10 +102,10 @@ body{
 }
 
 .css-typing p:nth-child(4) {
-  width: 42em;
+  width: 30em;
   opacity: 0;
-  -webkit-animation: type2 4s steps(40, end);
-  animation: type2 4s steps(40, end);
+  -webkit-animation: type2 4s steps(70, end);
+  animation: type2 4s steps(70, end);
   -webkit-animation-delay: 12s;
   animation-delay: 12s;
   -webkit-animation-fill-mode: forwards;
@@ -135,10 +113,10 @@ body{
   position: relative;
 }
 .css-typing p:nth-child(5) {
-  width: 30em;
+  width: 20em;
   opacity: 0;
-  -webkit-animation: type2 4s steps(40, end);
-  animation: type2 4s steps(40, end);
+  -webkit-animation: type2 4s steps(70, end);
+  animation: type2 4s steps(70, end);
   -webkit-animation-delay: 16s;
   animation-delay: 16s;
   -webkit-animation-fill-mode: forwards;
