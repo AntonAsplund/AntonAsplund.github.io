@@ -15,6 +15,32 @@ h1 {
     border-color:#00FF66 ;
 }
 
+.blurred-animation {
+  animation: blurred 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+  height: 20em;
+  width: 20em;
+  position: absolute;
+  left: 90em;
+  border-radius: 50%;
+  border: 5px solid;
+  border-color:#00FF66 ;
+}
+
+@keyframes blurred {
+  0% {
+    transform: translate(0, 0) skew(0deg, 0deg);
+    transform-origin: 0% 0%;
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0) skew(0deg, 0deg);
+    transform-origin: 50% 50%;
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
 @-webkit-keyframes roll-in-left {
     0% {
       -webkit-transform: translateX(10em) rotate(-540deg);
