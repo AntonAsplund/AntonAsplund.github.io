@@ -5,23 +5,23 @@ a.button {
 }
 
 img.FrontImage {
-    max-width: 20em;
+    width: 10em;
     max-height: 20em;
-    position: relative;
 }
 
 p.PersonInfo{
-    position: absolute;
-    left: 18em;
-    top: 4em;
-    max-width: 20em;
+    max-width: 40em;
+    height: 14em;
+    border: solid 1px black;
+    padding: 1em;
+    padding-top: 2em;
+    background-color: gold;
 }
 
 h1 {
     left: 0em;
     position: relative;
     border-bottom: double;
-    max-width: 5em;
 }
 
 td.FirstRow{
@@ -30,4 +30,39 @@ td.FirstRow{
 
 .TemporaryImportance{
     color: red;
+}
+
+.floatleft {
+    float: left;
+    margin: 1em;
+}
+
+.morethan1900px {
+    color: #4b5320;
+    border: solid 1px black;
+    display: inline;
+    background-color: cornflowerblue;
+}
+
+.between500and800px {
+    display:none;
+}
+
+@media (max-width: 1900px) {
+    .morethan1900px {
+        display: none;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 800px) {
+    .between500and800px {
+        color: #4b5320;
+        border: solid 1px black;
+        display: inline;
+        background-color: cornflowerblue;
+    }
+}
+
+@media print {
+    #schoolassignments {display: none;}
 }

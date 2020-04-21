@@ -1,0 +1,27 @@
+
+
+.holygraillayoutitem {
+    border: solid 1px black;
+}
+
+@media (max-width: 1050px) {
+    .holygraillayout{
+        display: flex;
+        flex-direction: column;
+        background-color: cyan;
+    }
+}
+
+@media (min-width: 1051px) {
+    .holygraillayout{
+        display: flex;
+        flex-direction: row;
+        background-color: crimson;
+        align-items: center;
+    }
+
+    .holygraillayoutitem {
+        flex: 1 1 auto;
+    }
+
+}
