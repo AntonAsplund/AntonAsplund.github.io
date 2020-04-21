@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
+    border: solid 1px black;
+}
+
+.header {
+    background-color: #3ae9bf;
+    width: 20%;
+}
+
+.nav {
+    background-color:#16d347 ;
+    width: 20%;
+}
+
+.main {
+    background-color: #ec572e;
+    width: 20%;
+}
+
+.rightsidebar {
+    background-color:#4ee487 ;
+    width: 20%;
+}
+
+.footer {
+    background-color: #5e5d9b;
+    width: 20%;
+}

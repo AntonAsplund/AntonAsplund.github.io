@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.header {
+    background-color: #0492fa;
+}
+
+.nav {
+    background-color: #920f50;
+}
+
+.main {
+    background-color: #9ea8ad;
+}
+
+.rightsidebar {
+    background-color: #2261fb;
+}
+
+.footer {
+    background-color:#853f2a ;
+}
