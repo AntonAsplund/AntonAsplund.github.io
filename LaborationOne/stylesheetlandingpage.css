@@ -94,7 +94,17 @@ a:link, a:active, a:visited {
 }
 
 @media (max-width: 1100px){
-    
+    body {
+        font-size: 0.3em;
+    }
+        /*
+    .landingpagefrontphoto {
+        width: 100%;
+        position: relative;
+        top: 17em;
+        object-fit: cover;
+    }*/
+
     .flexcontainer{
         display: flex;
         flex-direction: column;
@@ -105,6 +115,8 @@ a:link, a:active, a:visited {
         font-family: sans-serif;
         text-emphasis: none;
         text-align: center;
+        padding-bottom: 1.5EM;
+        padding-top: 1.5em;
     }
     
     .flexcontainer  a {
