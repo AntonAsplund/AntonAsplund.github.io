@@ -23,3 +23,63 @@ h1 {
 body {
     margin: 0px;
 }
+
+footer {
+    border-top: 3px solid grey;
+    height: 10vw;
+}
+
+a {
+    text-decoration: none;
+    text-decoration-color: black;
+}
+
+a:link, a:active, a:visited {
+    text-decoration-color: black;
+}
+
+.footerelementcontainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 2em;
+    padding-left: 5em;
+    padding-right: 5em;
+}
+
+.footerelementcontainer > :nth-child(2) {
+    text-align: right;
+}
+
+@media (max-width: 1100px){
+    body {
+        font-size: 0.3em;
+    }
+
+    .flexcontainer{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .flexcontainer > div {
+        flex: 1 1 auto;
+        font-family: sans-serif;
+        text-emphasis: none;
+        text-align: center;
+        padding-bottom: 1.5EM;
+        padding-top: 1.5em;
+    }
+    
+    .flexcontainer  a {
+        border: solid 3px black;
+        background-color: lightgray;
+    }
+
+    .footerelementcontainer > div > p {
+        text-align: center;
+    }
+
+    .footerelementcontainer {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

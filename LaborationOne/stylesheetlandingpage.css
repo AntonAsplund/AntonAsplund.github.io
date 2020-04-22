@@ -97,13 +97,6 @@ a:link, a:active, a:visited {
     body {
         font-size: 0.3em;
     }
-        /*
-    .landingpagefrontphoto {
-        width: 100%;
-        position: relative;
-        top: 17em;
-        object-fit: cover;
-    }*/
 
     .flexcontainer{
         display: flex;
