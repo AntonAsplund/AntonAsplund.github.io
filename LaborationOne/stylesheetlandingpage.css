@@ -1,0 +1,97 @@
+header {
+    border-bottom: solid 3px black;
+    padding-left: 1em;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 18%, rgba(0,212,255,1) 40%, rgba(2,0,36,1) 100%);
+    
+}
+
+h1 {
+    font-size: 3.5em;
+}
+
+.headerpicture {
+    width: 2em;
+    float: left;
+    padding-right: 0.5em;
+}
+
+body {
+    margin: 0px;
+}
+
+.landingpagefrontphoto {
+    width: 100%;
+    position: relative;
+    top: 8em;
+    object-fit: cover;
+}
+
+
+main > div {
+    text-align: center;
+}
+
+.flexcontainer{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 5em;
+    padding-top: 10em;
+}
+
+.flexcontainer > div {
+    flex: 1 1 15em;
+    font-family: sans-serif;
+    text-emphasis: none;
+    padding: 1em;
+    font-size: 4em;
+    text-align: center;
+    
+}
+
+.flexcontainer  a {
+    border: solid 3px black;
+    background-color: lightgray;
+    padding: 0.5em;
+    padding-left: 6vw;
+    padding-right: 6vw;
+}
+
+footer {
+    border-top: 3px solid grey;
+    height: 10vw;
+}
+
+a {
+    text-decoration: none;
+    text-decoration-color: black;
+}
+
+a:link, a:active, a:visited {
+    text-decoration-color: black;
+}
+
+@media (hover: hover) {
+    .flexcontainer a:hover {
+        background-color: gray;
+    }
+
+    
+
+}
+
+.footerelementcontainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 2em;
+    padding-left: 5em;
+    padding-right: 5em;
+}
+
+.footerelementcontainer > :nth-child(2) {
+    text-align: right;
+}

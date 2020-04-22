@@ -1,0 +1,16 @@
+header {
+    border-bottom: solid 1px black;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    
+}
+
+h1 {
+    font-size: 3.5em;
+}
+
+.headerpicture {
+    width: 2em;
+    float: left;
+    padding-right: 0.5em;
+}
