@@ -127,13 +127,17 @@ a:link, a:active, a:visited {
     }
 
     #navbuttonone:checked ~ .navflexcontainer {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        left: 15vw;
+        bottom: 15vh;
     }
     
     #navbuttonone:checked ~ .navflexcontainer > div {
-        left: 10vw;
+        left: 15vw;
         display: flex;
-        position: relative;
+        flex-direction: column;
         bottom: 15vh;
     }
 
@@ -145,13 +149,11 @@ a:link, a:active, a:visited {
         background-color: lightgray;
         z-index: 80;
     }
-/*
-    #navbuttonone:checked ~ .navflexcontainer > :nth-child(1){
-        top: 75vh;
-    }
+}
 
-    #navbuttonone:checked ~ .navflexcontainer > :nth-child(2){
-        top: 65vh;
+@media (orientation: landscape) {
+    #navbuttonone:checked ~ .navflexcontainer {
+        left: 0vw;
+        bottom: 35vh;
     }
-   */ 
 }
