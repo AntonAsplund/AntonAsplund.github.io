@@ -65,23 +65,24 @@ a:link, a:active, a:visited {
         position: fixed;
         z-index: 101;
         top: 3em;
-        right:  10em;
+        right:  0em;
         display: flex;
-        font-size: 4em;
+        font-size: 2em;
         flex-direction: row;
     }
     
     .navflexcontainer > div {
-        flex: 1 1 15em;
+        flex: 1 1 10em;
         font-family: sans-serif;
         text-emphasis: none;
         text-align: center;
+        width: 6.5em;
     }
     
     .navflexcontainer > div > a {
         border: solid 1px black;
         background-color: lightgray;
-        padding: 0.5em;
+        padding: 0.2em;
     }
 }
 
