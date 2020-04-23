@@ -10,6 +10,16 @@ header {
     margin: 0px;
 }
 
+main > p {
+    width: 40vw; 
+    text-align: left; 
+    margin: auto; 
+    position: relative; 
+    padding-top: 10em; 
+    padding-bottom: 10em; 
+    z-index: -1;
+}
+
 h1 {
     font-size: 3.5em;
 }
@@ -102,7 +112,6 @@ a:link, a:active, a:visited {
         border-radius: 100%;
         padding: 1em;
         background-color: lightgray;
-        opacity: 50%;
     }
 
     .navbuttons > input[type="checkbox"] {
@@ -122,21 +131,27 @@ a:link, a:active, a:visited {
     }
     
     #navbuttonone:checked ~ .navflexcontainer > div {
-        left: 23vw;
-        display: block;
-        position: fixed;
+        left: 10vw;
+        display: flex;
+        position: relative;
+        bottom: 15vh;
+    }
+
+    #navbuttonone:checked ~ .navflexcontainer > div a{
+        flex-direction: column;
         border: 1px solid black;
         border-radius: 100%;
         padding: 1em;
         background-color: lightgray;
+        z-index: 80;
     }
-
+/*
     #navbuttonone:checked ~ .navflexcontainer > :nth-child(1){
         top: 75vh;
     }
 
     #navbuttonone:checked ~ .navflexcontainer > :nth-child(2){
-        top: 68vh;
+        top: 65vh;
     }
-    
+   */ 
 }
