@@ -94,22 +94,15 @@ a:link, a:active, a:visited {
         position: fixed;
         left: 5vw;
         top: 80vh;
+        font-size: 3em;
     }
 
     .navbuttons > label {
         border: 1px solid black;
         border-radius: 100%;
-        padding: 2em;
-        font-size: 3em;
+        padding: 1em;
         background-color: lightgray;
         opacity: 50%;
-    }
-
-    .navbuttons > .navflexcontainer {
-        border: 1px solid black;
-        padding: 0.2em 0.2em;
-        margin: 0.1em;
-        margin-top: 0.2em;
     }
 
     .navbuttons > input[type="checkbox"] {
@@ -121,18 +114,29 @@ a:link, a:active, a:visited {
     }
 
     .navbuttons > :checked + label {
-        background-color: pink;
-    }
-    #navbuttonone:not(:checked ~ .navflexcontainer) {
-        display: none;
+        background-color: aquamarine;
     }
 
     #navbuttonone:checked ~ .navflexcontainer {
         display: block;
+    }
+    
+    #navbuttonone:checked ~ .navflexcontainer > div {
+        left: 23vw;
+        display: block;
         position: fixed;
-        top: 80vw;
-        left: 10vw;
+        border: 1px solid black;
+        border-radius: 100%;
+        padding: 1em;
+        background-color: lightgray;
+    }
 
+    #navbuttonone:checked ~ .navflexcontainer > :nth-child(1){
+        top: 75vh;
+    }
+
+    #navbuttonone:checked ~ .navflexcontainer > :nth-child(2){
+        top: 68vh;
     }
     
 }
