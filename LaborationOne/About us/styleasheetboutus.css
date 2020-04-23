@@ -20,29 +20,6 @@ h1 {
     padding-right: 0.5em;
 }
 
-.navflexcontainer {
-    position: fixed;
-    z-index: 101;
-    top: 3em;
-    right:  10em;
-    display: flex;
-    font-size: 1em;
-    flex-direction: row;
-}
-
-.navflexcontainer > div {
-    flex: 1 1 15em;
-    font-family: sans-serif;
-    text-emphasis: none;
-    text-align: center;
-}
-
-.navflexcontainer > div > a {
-    border: solid 3px black;
-    background-color: lightgray;
-    padding: 0.5em;
-}
-
 body {
     margin: 0px;
 }
@@ -73,6 +50,32 @@ a:link, a:active, a:visited {
     text-align: right;
 }
 
+@media (min-width: 1101px){
+    .navflexcontainer {
+        position: fixed;
+        z-index: 101;
+        top: 3em;
+        right:  10em;
+        display: flex;
+        font-size: 4em;
+        flex-direction: row;
+    }
+    
+    .navflexcontainer > div {
+        flex: 1 1 15em;
+        font-family: sans-serif;
+        text-emphasis: none;
+        text-align: center;
+    }
+    
+    .navflexcontainer > div > a {
+        border: solid 1px black;
+        background-color: lightgray;
+        padding: 0.5em;
+    }
+}
+
+
 @media (max-width: 1100px){
     body {
         font-size: 0.3em;
@@ -86,4 +89,50 @@ a:link, a:active, a:visited {
         display: grid;
         grid-template-columns: 1fr;
     }
+
+    .navbuttons {
+        position: fixed;
+        left: 5vw;
+        top: 80vh;
+    }
+
+    .navbuttons > label {
+        border: 1px solid black;
+        border-radius: 100%;
+        padding: 2em;
+        font-size: 3em;
+        background-color: lightgray;
+        opacity: 50%;
+    }
+
+    .navbuttons > .navflexcontainer {
+        border: 1px solid black;
+        padding: 0.2em 0.2em;
+        margin: 0.1em;
+        margin-top: 0.2em;
+    }
+
+    .navbuttons > input[type="checkbox"] {
+        display: none;
+    }
+
+    .navflexcontainer > * {
+        display: none;
+    }
+
+    .navbuttons > :checked + label {
+        background-color: pink;
+    }
+    #navbuttonone:not(:checked ~ .navflexcontainer) {
+        display: none;
+    }
+
+    #navbuttonone:checked ~ .navflexcontainer {
+        display: block;
+        position: fixed;
+        top: 80vw;
+        left: 10vw;
+
+    }
+    
 }
