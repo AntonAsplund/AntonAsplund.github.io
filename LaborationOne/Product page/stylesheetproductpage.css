@@ -85,12 +85,7 @@ a:link, a:active, a:visited {
     }
 }
 
-
-@media (max-width: 1000px){
-    body {
-        font-size: 0.3em;
-    }
-
+@media (max-width: 500px){
     .footerelementcontainer > div > p {
         text-align: center;
     }
@@ -98,6 +93,13 @@ a:link, a:active, a:visited {
     .footerelementcontainer {
         display: grid;
         grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 1000px){
+    body {
+        font-size: 0.3em;
     }
 
     .navbuttons {
