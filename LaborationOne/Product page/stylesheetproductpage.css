@@ -10,6 +10,16 @@ header {
     
 }
 
+main > p {
+    width: 40vw; 
+    text-align: left; 
+    margin: auto; 
+    position: relative; 
+    padding-top: 10em; 
+    padding-bottom: 10em; 
+    z-index: -1;
+}
+
 h1 {
     font-size: 3.5em;
 }
@@ -50,28 +60,35 @@ a:link, a:active, a:visited {
     text-align: right;
 }
 
-@media (max-width: 1100px){
-    body {
-        font-size: 0.3em;
-    }
-
-    .flexcontainer{
+@media (min-width: 1001px){
+    .navflexcontainer {
+        position: fixed;
+        z-index: 101;
+        top: 3em;
+        right:  10em;
         display: flex;
-        flex-direction: column;
+        font-size: 4em;
+        flex-direction: row;
     }
     
-    .flexcontainer > div {
-        flex: 1 1 auto;
+    .navflexcontainer > div {
+        flex: 1 1 15em;
         font-family: sans-serif;
         text-emphasis: none;
         text-align: center;
-        padding-bottom: 1.5EM;
-        padding-top: 1.5em;
     }
     
-    .flexcontainer  a {
-        border: solid 3px black;
+    .navflexcontainer > div > a {
+        border: solid 1px black;
         background-color: lightgray;
+        padding: 0.5em;
+    }
+}
+
+
+@media (max-width: 1000px){
+    body {
+        font-size: 0.3em;
     }
 
     .footerelementcontainer > div > p {
@@ -82,4 +99,60 @@ a:link, a:active, a:visited {
         display: grid;
         grid-template-columns: 1fr;
     }
+
+    .navbuttons {
+        position: fixed;
+        left: 5vw;
+        top: 80vh;
+        font-size: 3em;
+    }
+
+    .navbuttons > label {
+        border: 1px solid black;
+        border-radius: 100%;
+        padding: 1em;
+        background-color: lightgray;
+    }
+
+    .navbuttons > input[type="checkbox"] {
+        display: none;
+    }
+
+    .navflexcontainer > * {
+        display: none;
+    }
+
+    .navbuttons > :checked + label {
+        background-color: aquamarine;
+    }
+
+    #navbuttonone:checked ~ .navflexcontainer {
+        position: relative;
+        left: 15vw;
+        bottom: 15vh;
+    }
+    
+    #navbuttonone:checked ~ .navflexcontainer > div {
+        left: 15vw;
+        display: flex;
+        flex-direction: column;
+        bottom: 15vh;
+    }
+
+    #navbuttonone:checked ~ .navflexcontainer > div a{
+        flex-direction: column;
+        border: 1px solid black;
+        border-radius: 100%;
+        padding: 1em;
+        background-color: lightgray;
+        z-index: 80;
+    }
+}
+
+@media (orientation: landscape) {
+    #navbuttonone:checked ~ .navflexcontainer {
+        left: 0vw;
+        bottom: 45vh;
+    }
+
 }

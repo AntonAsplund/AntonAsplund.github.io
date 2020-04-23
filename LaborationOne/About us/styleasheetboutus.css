@@ -127,8 +127,6 @@ a:link, a:active, a:visited {
     }
 
     #navbuttonone:checked ~ .navflexcontainer {
-        display: flex;
-        flex-direction: column;
         position: relative;
         left: 15vw;
         bottom: 15vh;
