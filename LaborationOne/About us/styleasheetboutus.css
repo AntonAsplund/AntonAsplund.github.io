@@ -48,7 +48,7 @@ body {
 
 footer {
     border-top: 3px solid grey;
-    height: 10vw;
+    background-color: lightgray;
 }
 
 a {

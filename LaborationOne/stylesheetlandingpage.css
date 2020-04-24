@@ -55,6 +55,8 @@ main > div {
 .flexcontainer  a {
     border: solid 3px black;
     background-color: lightgray;
+    font-size: 0.7em;
+    border-radius: 10px;
     padding: 0.5em;
     padding-left: 6vw;
     padding-right: 6vw;
@@ -62,7 +64,7 @@ main > div {
 
 footer {
     border-top: 3px solid grey;
-    height: 10vw;
+    background-color: lightgray;
 }
 
 a {
