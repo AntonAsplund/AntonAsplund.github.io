@@ -53,11 +53,14 @@ footer {
 
 a {
     text-decoration: none;
-    text-decoration-color: black;
 }
 
-a:link, a:active, a:visited {
-    text-decoration-color: black;
+a:link, a:visited {
+    color:black;
+}
+
+a:active {
+    color:blue;
 }
 
 .footerelementcontainer {
@@ -125,6 +128,7 @@ a:link, a:active, a:visited {
         left: 5vw;
         top: 80vh;
         font-size: 2em;
+        z-index: 101;
     }
 
     .navbuttons > label {
@@ -143,7 +147,7 @@ a:link, a:active, a:visited {
     }
 
     .navbuttons > :checked + label {
-        background-color: aquamarine;
+        background-color: rgba(0,212,255,1);
     }
 
     #navbuttonone:checked ~ .navflexcontainer {
@@ -165,7 +169,6 @@ a:link, a:active, a:visited {
         border-radius: 100%;
         padding: 1em;
         background-color: lightgray;
-        z-index: 80;
     }
 
     .officecard > img {
@@ -208,6 +211,7 @@ h2 ~ h2 {
     #navbuttonone:checked ~ .navflexcontainer {
         left: 0vw;
         bottom: 45vh;
+        z-index: 101;
     }
 
 }

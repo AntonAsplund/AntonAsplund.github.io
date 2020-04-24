@@ -69,11 +69,14 @@ footer {
 
 a {
     text-decoration: none;
-    text-decoration-color: black;
 }
 
-a:link, a:active, a:visited {
-    text-decoration-color: black;
+a:link, a:visited {
+    color:black;
+}
+
+a:active {
+    color:blue;
 }
 
 @media (hover: hover) {
