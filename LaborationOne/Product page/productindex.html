@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="stylesheetproductpage.css">
     <link rel ="icon" href="../Assets/a6i4j-cqqhd-001.png" type="image/x-icon">
     <title>MRELAND© - Product page</title>
+    <script src="script.js"></script>
 </head>
 <body>
     <header>
@@ -44,7 +45,8 @@
         <div class="productcardgrid">
 
             <div class="productcard">
-                <img src="../Assets/productOne.jpg" alt="Swedish army 24hr field ration menu 1" style="width:100%">
+                <img src="../Assets/productOne.jpg" alt="Swedish army 24hr field ration menu 1" style="width:100%" onclick="productOneFunction()">
+                
                 <div class="productinfocontainer">
                 <h4><strong>Swe - 24hr Menu 1</strong></h4>
                 <p class="priceproductcard">$75.00</p>
@@ -114,6 +116,9 @@
             </div>
 
         </div>
+
+        <img src="../Assets/productOne.jpg" alt="Swedish army 24hr field ration menu 1" id="productonecloseup" class="imgcloseup" onclick="productOneFunction()">
+
     </main>
     <footer>
         <section class="footerelementcontainer">

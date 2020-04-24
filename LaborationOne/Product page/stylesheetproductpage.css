@@ -70,6 +70,15 @@ a:link, a:active, a:visited {
     text-align: right;
 }
 
+.imgcloseup {
+    position: absolute;
+    top: 0vh;
+    z-index: 200;
+    border: 3em solid black;
+    height: auto;
+    display: none;
+}
+
 @media (min-width: 1001px){
     .navflexcontainer {
         position: fixed;
@@ -99,6 +108,14 @@ a:link, a:active, a:visited {
         width: 100px;
         height: 150px;
     }
+
+    .imgcloseup {
+        left: 35vw;
+        right: 35vw;
+        width: 30vw;
+        top: 10vh;
+    }
+    
 }
 
 @media (max-width: 500px){
@@ -170,6 +187,10 @@ a:link, a:active, a:visited {
         width: 100px;
         height: 100px;
     }
+
+    .imgcloseup {
+        width: 100vw;
+    }
 }
 
 
@@ -239,4 +260,5 @@ a:link, a:active, a:visited {
     cursor: pointer;
     width: 100%;
     height: 3em;
-  }
+}
+
