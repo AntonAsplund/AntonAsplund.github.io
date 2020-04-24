@@ -24,7 +24,7 @@ h1 {
     font-size: 3.5em;
 }
 
-main > h2 {
+main > section > h2 {
     width: 70vw; 
     text-align: left; 
     margin: auto; 
@@ -128,6 +128,12 @@ a:active {
         height: 150px;
     }
     
+}
+
+@media (max-width: 365px){
+    main > section > h2 {
+        padding-top: 10em; 
+    }
 }
 
 @media (max-width: 500px){
@@ -274,6 +280,8 @@ a:active {
     width: 100%;
     height: 3em;
 }
+
+
 
 
 

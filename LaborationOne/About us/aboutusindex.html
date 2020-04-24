@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styleasheetboutus.css">
     <link rel ="icon" href="../Assets/a6i4j-cqqhd-001.png" type="image/x-icon">
+    <script src="script.js"></script>
     <title>MRELAND© - About us</title>
 </head>
 <body>
@@ -27,7 +28,7 @@
         <input id="navbuttonone" type="checkbox" name="navbutton" />
         <label for="navbuttonone">Nav</label>
 
-        <div class="navflexcontainer">
+        <section class="navflexcontainer">
             <div>
                 <a href="../landingpage.html">Startup page</a>
             </div>
@@ -37,74 +38,89 @@
             <div>
                 <a href="../About%20us/aboutusindex.html">About us</a>
             </div>
-        </div>
+        </section>
         
     </nav>
         
     <main>
-        
-        <h2>The story of MRELAND© </h2>
+        <section>
+            <h2>The story of MRELAND© </h2>
 
-        <p>
+            <p>
 
-            I've always kept my interest of cooking and outdoor life close, rarely have I been able two combine those two. 
-            <br><br>
-            During my military service in the swedish army. I got to know the about the world of field rations. 
-            <br><br>
-            Many countries around the globe source through civilian contractors or state owned company, their own field ration. 
-            To provide an easy to come by meal whilst being deployed. Some conutries have taken this litterally and bascially always eats filed rations whilst outside the countries borders.
-            Others have gone set up field kitchens which provide on site cooked food, and whilst deployed in combat zone the troops are being issued high quality meals.
-            <br><br>
-            A countries field rations reflects a set menu of the most popular dishes of that country. So while eating field rations from different countries a person might go on a food world tour. With the luxury of their own home.
-            <br><br>
-            We wanted to help people make that journey. Most of the time the field rations are expensive because of many middle mens. So we aim for a procurement from a source as close to the manufacturer as possible.
+                I've always kept my interest of cooking and outdoor life close, rarely have I been able two combine those two. 
+                <br><br>
+                During my military service in the swedish army. I got to know the about the world of field rations. 
+                <br><br>
+                Many countries around the globe source through civilian contractors or state owned company, their own field ration. 
+                To provide an easy to come by meal whilst being deployed. Some conutries have taken this litterally and bascially always eats filed rations whilst outside the countries borders.
+                Others have gone set up field kitchens which provide on site cooked food, and whilst deployed in combat zone the troops are being issued high quality meals.
+                <br><br>
+                A countries field rations reflects a set menu of the most popular dishes of that country. So while eating field rations from different countries a person might go on a food world tour. With the luxury of their own home.
+                <br><br>
+                We wanted to help people make that journey. Most of the time the field rations are expensive because of many middle mens. So we aim for a procurement from a source as close to the manufacturer as possible.
 
-        </p>
+            </p>
+        </section>
 
-        <h2>Our philosophy</h2>
+        <section>
+            <h2>Our philosophy</h2>
 
-        <p>
-            <q>To provide the civilian market with afforable MRE's. Always fresh and within date.</q>
-            <br><br>
-        </p>
+            <p>
+                <q>To provide the civilian market with afforable MRE's. Always fresh and within date.</q>
+                <br><br>
+            </p>
+        </section>
 
-        <h2>Our Employees</h2>
+        <section>
 
-        <div class="officecardgrid">
+            <h2>Our Employees</h2>
 
-            <div class="officecard">
-                <img src="../Assets/EmployeeOne.jpg" alt="MRELAND Employee Anton Asplund" style="width:100%">
-                <div class="employeeinfocontainer">
-                <h4><strong>Anton Asplund</strong></h4>
-                <p>VP<br><br> <q>An MRE connoisseur</q></p>
-                </div>
-            </div>
+            <section class="officecardgrid">
+                
+                <article class="officecard">
+                    <img src="../Assets/EmployeeOne.jpg" alt="MRELAND Employee Anton Asplund" style="width:100%"  onclick="employeeFunction('employeeonecloseup', 'backgroundFiller')">
+                    <div class="employeeinfocontainer">
+                    <h4><strong>Anton Asplund</strong></h4>
+                    <p>VP<br><br> <q>An MRE connoisseur</q></p>
+                    </div>
+                </article>
 
-            <div class="officecard">
-                <img src="../Assets/EmployeeTwo.jpg" alt="MRELAND Employee Sanata Claus" style="width:100%">
-                <div class="employeeinfocontainer">
-                    <h4><strong>Santa Claus</strong></h4>
-                    <p>Delivery man<br><br> <q>Always jolly and cheerful</q></p>
-                </div>
-            </div>
+                <article class="officecard">
+                    <img src="../Assets/EmployeeTwo.jpg" alt="MRELAND Employee Sanata Claus" style="width:100%" onclick="employeeFunction('employeetwocloseup', 'backgroundFiller')">
+                    <div class="employeeinfocontainer">
+                        <h4><strong>Santa Claus</strong></h4>
+                        <p>Delivery man<br><br> <q>Always jolly and cheerful</q></p>
+                    </div>
+                </article>
 
-            <div class="officecard">
-                <img src="../Assets/EmployeeThree.jpg" alt="MRELAND Employee Rudolph Reindeer" style="width:100%">
-                <div class="employeeinfocontainer">
-                    <h4><strong>Rudolph Reindeer</strong></h4>
-                    <p>Asst. <br>Delivery man<br><br> <q>Born leader</q></p>
-                </div>
-            </div>
+                <article class="officecard">
+                    <img src="../Assets/EmployeeThree.jpg" alt="MRELAND Employee Rudolph Reindeer" style="width:100%" onclick="employeeFunction('employeethreecloseup', 'backgroundFiller')">
+                    <div class="employeeinfocontainer">
+                        <h4><strong>Rudolph Reindeer</strong></h4>
+                        <p>Asst. <br>Delivery man<br><br> <q>Born leader</q></p>
+                    </div>
+                </article>
 
-            <div class="officecard">
-                <img src="../Assets/EmployeeFour.jpg" alt="MRELAND Employee Dasher Reindeer" style="width:100%">
-                <div class="employeeinfocontainer">
-                    <h4><strong>Dasher Reindeer</strong></h4>
-                    <p>Asst. <br>Delivery man<br><br> <q>Quickest of all</q></p>
-                </div>
-            </div>
+                <article class="officecard">
+                    <img src="../Assets/EmployeeFour.jpg" alt="MRELAND Employee Dasher Reindeer" style="width:100%" onclick="employeeFunction('employeefourcloseup', 'backgroundFiller')">
+                    <div class="employeeinfocontainer">
+                        <h4><strong>Dasher Reindeer</strong></h4>
+                        <p>Asst. <br>Delivery man<br><br> <q>Quickest of all</q></p>
+                    </div>
+                </article>
 
-        </div>
+            </section>
+        </section>
+
+        <aside>
+            <img src="../Assets/EmployeeOne.jpg" alt="MRELAND Employee Anton Asplund" id="employeeonecloseup" class="imgcloseup" onclick="employeeFunction('employeeonecloseup', 'backgroundFiller')">
+            <img src="../Assets/EmployeeTwo.jpg" alt="MRELAND Employee Sanata Claus" id="employeetwocloseup" class="imgcloseup" onclick="employeeFunction('employeetwocloseup', 'backgroundFiller')">
+            <img src="../Assets/EmployeeThree.jpg" alt="MRELAND Employee Rudolph Reindeer" id="employeethreecloseup" class="imgcloseup" onclick="employeeFunction('employeethreecloseup', 'backgroundFiller')">
+            <img src="../Assets/EmployeeFour.jpg" alt="MRELAND Employee Dasher Reindeer" id="employeefourcloseup" class="imgcloseup" onclick="employeeFunction('employeefourcloseup', 'backgroundFiller')">
+            <div id="backgroundFiller" class="backgroundfillerclass">Fill background</div>
+        </aside>
+
     </main>
     <footer>
         <section class="footerelementcontainer">
