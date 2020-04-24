@@ -45,7 +45,7 @@
         <div class="productcardgrid">
 
             <div class="productcard">
-                <img src="../Assets/productOne.jpg" alt="Swedish army 24hr field ration menu 1" style="width:100%" onclick="productOneFunction()">
+                <img src="../Assets/productOne.jpg" alt="Swedish army 24hr field ration menu 1" style="width:100%" onclick="productFunction('productonecloseup', 'backgroundFiller')">
                 
                 <div class="productinfocontainer">
                 <h4><strong>Swe - 24hr Menu 1</strong></h4>
@@ -56,7 +56,7 @@
             </div>
 
             <div class="productcard">
-                <img src="../Assets/productTwo.jpg" alt="Swedish army 8hr field ration menu 8 breakfast" style="width:100%">
+                <img src="../Assets/productTwo.jpg" alt="Swedish army 8hr field ration menu 8 breakfast" style="width:100%" onclick="productFunction('producttwocloseup', 'backgroundFiller')">
                 <div class="productinfocontainer">
                     <h4><strong>Swe - 8hr menu 8</strong></h4>
                     <p class="priceproductcard">$25.00</p>
@@ -66,7 +66,7 @@
             </div>
 
             <div class="productcard">
-                <img src="../Assets/productthree.jpg" alt="Swedish army 8hr filed ration menu 6 breakfast" style="width:100%">
+                <img src="../Assets/productthree.jpg" alt="Swedish army 8hr filed ration menu 6 breakfast" style="width:100%" onclick="productFunction('productthreecloseup', 'backgroundFiller')">
                 <div class="productinfocontainer">
                     <h4><strong>Swe - 8hr menu 6</strong></h4>
                     <p class="priceproductcard">$25.00</p>
@@ -76,7 +76,7 @@
             </div>
 
             <div class="productcard">
-                <img src="../Assets/productfour.jpg" alt="MRELAND Employee Dasher Reindeer" style="width:100%">
+                <img src="../Assets/productfour.jpg" alt="MRELAND Employee Dasher Reindeer" style="width:100%" onclick="productFunction('productfourcloseup', 'backgroundFiller')">
                 <div class="productinfocontainer">
                     <h4><strong>Fre - 24hr menu 1</strong></h4>
                     <p class="priceproductcard">$45.00</p>
@@ -86,7 +86,7 @@
             </div>
 
             <div class="productcard">
-                <img src="../Assets/productfive.jpg" alt="MRELAND Employee Dasher Reindeer" style="width:100%">
+                <img src="../Assets/productfive.jpg" alt="MRELAND Employee Dasher Reindeer" style="width:100%" onclick="productFunction('productfivecloseup', 'backgroundFiller')">
                 <div class="productinfocontainer">
                     <h4><strong>Swe - single meal</strong></h4>
                     <p class="priceproductcard">$25.00</p>
@@ -96,7 +96,7 @@
             </div>
 
             <div class="productcard">
-                <img src="../Assets/productsix.jpg" alt="MRELAND Employee Dasher Reindeer" style="width:100%">
+                <img src="../Assets/productsix.jpg" alt="MRELAND Employee Dasher Reindeer" style="width:100%" onclick="productFunction('productsixcloseup', 'backgroundFiller')">
                 <div class="productinfocontainer">
                     <h4><strong>Usa - 8hr menu 9</strong></h4>
                     <p class="priceproductcard">$45.00</p>
@@ -106,19 +106,25 @@
             </div>
 
             <div class="productcard">
-                <img src="../Assets/productseven.jpg" alt="MRELAND Employee Dasher Reindeer" style="width:100%">
+                <img src="../Assets/productseven.jpg" alt="MRELAND Employee Dasher Reindeer" style="width:100%" onclick="productFunction('productsevencloseup', 'backgroundFiller')">
                 <div class="productinfocontainer">
                     <h4><strong>Gbr - 24hr menu 9</strong></h4>
                     <p class="priceproductcard">$45.00</p>
-                    <p class="productdescription">Complete french army 24hour ration to cover the main meals and snacks for an entire day. Comes with an esbit stove.</p>
+                    <p class="productdescription">Complete british army 24hour ration to cover the main meals and snacks for an entire day.</p>
                     <p><button>Add to Cart</button></p>
                 </div>
             </div>
 
         </div>
 
-        <img src="../Assets/productOne.jpg" alt="Swedish army 24hr field ration menu 1" id="productonecloseup" class="imgcloseup" onclick="productOneFunction()">
-
+        <img src="../Assets/productOne.jpg" alt="Swedish army 24hr field ration menu 1" id="productonecloseup" class="imgcloseup" onclick="productFunction('productonecloseup', 'backgroundFiller')">
+        <img src="../Assets/productTwo.jpg" alt="Swedish army 24hr field ration menu 1" id="producttwocloseup" class="imgcloseup" onclick="productFunction('producttwocloseup', 'backgroundFiller')">
+        <img src="../Assets/productthree.jpg" alt="Swedish army 24hr field ration menu 1" id="productthreecloseup" class="imgcloseup" onclick="productFunction('productthreecloseup', 'backgroundFiller')">
+        <img src="../Assets/productfour.jpg" alt="Swedish army 24hr field ration menu 1" id="productfourcloseup" class="imgcloseup" onclick="productFunction('productfourcloseup', 'backgroundFiller')">
+        <img src="../Assets/productfive.jpg" alt="Swedish army 24hr field ration menu 1" id="productfivecloseup" class="imgcloseup" onclick="productFunction('productfivecloseup', 'backgroundFiller')">
+        <img src="../Assets/productsix.jpg" alt="Swedish army 24hr field ration menu 1" id="productsixcloseup" class="imgcloseup" onclick="productFunction('productsixcloseup', 'backgroundFiller')">
+        <img src="../Assets/productseven.jpg" alt="Swedish army 24hr field ration menu 1" id="productsevencloseup" class="imgcloseup" onclick="productFunction('productsevencloseup', 'backgroundFiller')">
+        <div id="backgroundFiller" class="backgroundfillerclass">Fill background</div>
     </main>
     <footer>
         <section class="footerelementcontainer">
