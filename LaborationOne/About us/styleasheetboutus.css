@@ -225,11 +225,18 @@ main > section > h2 {
 
 @media (orientation: landscape) {
     #navbuttonone:checked ~ .navflexcontainer {
-        left: 0vw;
-        bottom: 45vh;
+        left: 10vw;
+        top: -40vh;
         z-index: 101;
     }
 
+}
+
+@media (max-width: 1000px) and (min-width: 450px) and (max-height: 1000px) and (min-height: 775px){
+    #navbuttonone:checked ~ .navflexcontainer {
+        left: 0vw;
+        top: -25vh
+    }
 }
 
 .imgcloseup {
