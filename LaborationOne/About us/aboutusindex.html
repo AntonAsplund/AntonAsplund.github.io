@@ -16,7 +16,7 @@
                 <img src="../Assets/Logotype.png" alt="Logotype Picture" title="Logotype Picture" class="headerpicture"/>
             </picture>
 
-              MRELAND© - About us
+              MRELAND©
         </h1>
 
     </header>
@@ -29,13 +29,13 @@
         <label for="navbuttonone">Menu</label>
 
         <section class="navflexcontainer">
-            <div>
+            <div class="scale-in-bl">
                 <a href="../landingpage.html">Startup page</a>
             </div>
-            <div>
+            <div class="scale-in-bl">
                 <a href="../Product%20page/productindex.html">Products</a>
             </div>
-            <div>
+            <div class="scale-in-bl">
                 <a href="../About%20us/aboutusindex.html">About us</a>
             </div>
         </section>
@@ -56,7 +56,7 @@
                 To provide an easy to come by meal whilst being deployed. Some conutries have taken this litterally and bascially always eats filed rations whilst outside the countries borders.
                 Others have gone set up field kitchens which provide on site cooked food, and whilst deployed in combat zone the troops are being issued high quality meals.
                 <br><br>
-                A countries field rations reflects a set menu of the most popular dishes of that country. So while eating field rations from different countries a person might go on a food world tour. With the luxury of their own home.
+                A countries field rations reflects a set menu of the most popular dishes of that country. So while eating field rations from different countries a person might go on a food world tour. Within the luxury of their own home.
                 <br><br>
                 We wanted to help people make that journey. Most of the time the field rations are expensive because of many middle mens. So we aim for a procurement from a source as close to the manufacturer as possible.
 
@@ -78,48 +78,73 @@
 
             <section class="officecardgrid">
                 
-                <article class="officecard" onclick="employeeFunction('employeeonecloseup', 'backgroundFiller')">
-                    <img src="../Assets/EmployeeOne.jpg" alt="MRELAND Employee Anton Asplund">
-                    <div class="employeeinfocontainer">
-                    <h4><strong>Anton Asplund</strong></h4>
-                    <p>VP<br><br> <q>An MRE connoisseur</q></p>
+                <article class="officecard">
+                    <div onclick="employeeFunction('employeeonecloseup', 'backgroundFiller')">
+                        <img src="../Assets/EmployeeOneSmall.jpg" alt="MRELAND Employee Anton Asplund">
+                        <div class="employeeinfocontainer">
+                            <h4><strong>Anton Asplund</strong></h4>
+                            <p>CEO<br><br> </p>
+                        </div>
+                    </div>
+                    <div id="employeeonecloseup" class="imgcloseupcontainer">
+                        <img src="../Assets/EmployeeOne.jpg" alt="MRELAND Employee Anton Asplund" id="employeeonecloseup" class="imgcloseup">
+                        <p class="imgcloseupinformation"><strong>Anton Asplund</strong> - <q>An MRE connoisseur</q></p>
+                        <img src="../Assets/exitcrossout.png" alt="exit crossout" class="exitcrossout" onclick="employeeFunction('employeeonecloseup', 'backgroundFiller')">
                     </div>
                 </article>
 
-                <article class="officecard" onclick="employeeFunction('employeetwocloseup', 'backgroundFiller')">
-                    <img src="../Assets/EmployeeTwo.jpg" alt="MRELAND Employee Sanata Claus">
-                    <div class="employeeinfocontainer">
-                        <h4><strong>Santa Claus</strong></h4>
-                        <p>Delivery man<br><br> <q>Always jolly and cheerful</q></p>
+                <article class="officecard" >
+                    <div onclick="employeeFunction('employeetwocloseup', 'backgroundFiller')">
+                        <img src="../Assets/EmployeeTwoSmall.jpg" alt="MRELAND Employee Sanata Claus">
+                        <div class="employeeinfocontainer">
+                            <h4><strong>Santa Claus</strong></h4>
+                            <p>Delivery man<br><br> </p>
+                        </div>
+                    </div>
+
+                    <div id="employeetwocloseup" class="imgcloseupcontainer">
+                        <img src="../Assets/EmployeeTwo.jpg" alt="MRELAND Employee Sanata Claus" id="employeetwocloseup" class="imgcloseup">
+                        <p class="imgcloseupinformation"><strong>Santa Claus</strong> - <q>Always jolly and cheerful</q></p>
+                        <img src="../Assets/exitcrossout.png" alt="exit crossout" class="exitcrossout" onclick="employeeFunction('employeetwocloseup', 'backgroundFiller')">
                     </div>
                 </article>
 
-                <article class="officecard" onclick="employeeFunction('employeethreecloseup', 'backgroundFiller')">
-                    <img src="../Assets/EmployeeThree.jpg" alt="MRELAND Employee Rudolph Reindeer">
-                    <div class="employeeinfocontainer">
-                        <h4><strong>Rudolph Reindeer</strong></h4>
-                        <p>Asst. <br>Delivery man<br><br> <q>Born leader</q></p>
+                <article class="officecard">
+                    <div onclick="employeeFunction('employeethreecloseup', 'backgroundFiller')">
+                        <img src="../Assets/EmployeeThreeSmall.jpg" alt="MRELAND Employee Rudolph Reindeer">
+                        <div class="employeeinfocontainer">
+                            <h4><strong>Rudolph Reindeer</strong></h4>
+                            <p>Asst. <br>Delivery man<br><br> </p>
+                        </div>
+                    </div>
+
+                    <div id="employeethreecloseup" class="imgcloseupcontainer">
+                        <img src="../Assets/EmployeeThree.jpg" alt="MRELAND Employee Rudolph Reindeer" id="employeethreecloseup" class="imgcloseup">
+                        <p class="imgcloseupinformation"><strong>Rudolph Reindeer</strong> - <q>Born leader</q></p>
+                        <img src="../Assets/exitcrossout.png" alt="exit crossout" class="exitcrossout" onclick="employeeFunction('employeethreecloseup', 'backgroundFiller')">
                     </div>
                 </article>
 
-                <article class="officecard" onclick="employeeFunction('employeefourcloseup', 'backgroundFiller')">
-                    <img src="../Assets/EmployeeFour.jpg" alt="MRELAND Employee Dasher Reindeer">
-                    <div class="employeeinfocontainer">
-                        <h4><strong>Dasher Reindeer</strong></h4>
-                        <p>Asst. <br>Delivery man<br><br> <q>Quickest of all</q></p>
+                <article class="officecard" >
+                    <div onclick="employeeFunction('employeefourcloseup', 'backgroundFiller')">
+                        <img src="../Assets/EmployeeFourSmall.jpg" alt="MRELAND Employee Dasher Reindeer">
+                        <div class="employeeinfocontainer">
+                            <h4><strong>Dasher Reindeer</strong></h4>
+                            <p>Asst. <br>Delivery man<br><br></p>
+                        </div>
+                    </div>
+
+                    <div id="employeefourcloseup" class="imgcloseupcontainer">
+                        <img src="../Assets/EmployeeFour.jpg" alt="MRELAND Employee Dasher Reindeer" id="employeefourcloseup" class="imgcloseup">
+                        <p class="imgcloseupinformation"><strong>Dasher Reindeer</strong> - <q>Quickest of all</q></p>
+                        <img src="../Assets/exitcrossout.png" alt="exit crossout" class="exitcrossout" onclick="employeeFunction('employeefourcloseup', 'backgroundFiller')">
                     </div>
                 </article>
 
             </section>
         </section>
 
-        <aside>
-            <img src="../Assets/EmployeeOne.jpg" alt="MRELAND Employee Anton Asplund" id="employeeonecloseup" class="imgcloseup" onclick="employeeFunction('employeeonecloseup', 'backgroundFiller')">
-            <img src="../Assets/EmployeeTwo.jpg" alt="MRELAND Employee Sanata Claus" id="employeetwocloseup" class="imgcloseup" onclick="employeeFunction('employeetwocloseup', 'backgroundFiller')">
-            <img src="../Assets/EmployeeThree.jpg" alt="MRELAND Employee Rudolph Reindeer" id="employeethreecloseup" class="imgcloseup" onclick="employeeFunction('employeethreecloseup', 'backgroundFiller')">
-            <img src="../Assets/EmployeeFour.jpg" alt="MRELAND Employee Dasher Reindeer" id="employeefourcloseup" class="imgcloseup" onclick="employeeFunction('employeefourcloseup', 'backgroundFiller')">
-            <div id="backgroundFiller" class="backgroundfillerclass">Fill background</div>
-        </aside>
+        <div id="backgroundFiller" class="backgroundfillerclass">Fill background</div>
 
     </main>
     <footer>

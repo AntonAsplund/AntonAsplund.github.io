@@ -6,7 +6,7 @@ header {
     width: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(90deg, rgba(255,255,255,1) 18%, rgba(0,212,255,1) 40%, rgba(2,0,36,1) 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 30%, rgba(133,145,148,1) 40%, rgba(2,0,36,1) 100%);
     
 }
 
@@ -25,17 +25,19 @@ main > p {
 }
 
 h1 {
-    font-size: 3.5em;
+    font-size: 2.5em;
 }
 
 main > section > h2 {
     width: 70vw; 
-    text-align: left; 
-    margin: auto; 
+    font-size: 2em;
+    text-align: center; 
+    margin: auto;
     position: relative; 
-    padding-top: 8em; 
+    padding-top: 6em; 
     padding-bottom: 2em; 
     z-index: -1;
+    
 }
 
 .headerpicture {
@@ -46,6 +48,7 @@ main > section > h2 {
 
 body {
     margin: 0px;
+    background-color: white;
 }
 
 footer {
@@ -106,7 +109,7 @@ a:active {
     .navflexcontainer {
         position: fixed;
         z-index: 101;
-        top: 3em;
+        top: 1.55em;
         right:  0em;
         display: flex;
         font-size: 2em;
@@ -118,13 +121,15 @@ a:active {
         font-family: sans-serif;
         text-emphasis: none;
         text-align: center;
-        width: 6.5em;
-    }
-    
-    .navflexcontainer > div > a {
+        width: 5.8em;
+        margin-left: 0.5em;
+        padding: 0.2em;
         border: solid 1px black;
         background-color: lightgray;
-        padding: 0.2em;
+    }
+
+    .navflexcontainer > :nth-child(3) {
+        margin-right: 0.5em;
     }
 
     .productcard  img {
@@ -178,6 +183,7 @@ a:active {
         top: 80vh;
         font-size: 2em;
         z-index: 101;
+        font-family: sans-serif;
     }
 
     .navbuttons > label {
@@ -243,6 +249,23 @@ a:active {
     html {
 
         -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+
+    .scale-in-bl {
+        animation: scale-in-bl 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    
+    @keyframes scale-in-bl {
+        0% {
+          transform: scale(0);
+          transform-origin: 0% 100%;
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+          transform-origin: 0% 100%;
+          opacity: 1;
+        }
       }
 }
 
@@ -267,12 +290,13 @@ a:active {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
     padding-bottom: 6em;
+    cursor: pointer;
 }
 
 .productcard {
     margin: 0.5em;
     margin-bottom: 1em;
-    background-color: #f9f9f9;
+    background-color: lightgray;
 }
 
 .productcard:hover {
@@ -356,6 +380,3 @@ a:active {
 .productcard .imgcloseupcontainer {
     display: none;
 }
-
-
-

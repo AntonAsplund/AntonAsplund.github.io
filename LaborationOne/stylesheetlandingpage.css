@@ -6,12 +6,12 @@ header {
     width: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(90deg, rgba(255,255,255,1) 18%, rgba(0,212,255,1) 40%, rgba(2,0,36,1) 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 30%, rgba(133,145,148,1) 40%, rgba(2,0,36,1) 100%);
     
 }
 
 h1 {
-    font-size: 3.5em;
+    font-size: 2.5em;
 }
 
 .headerpicture {
@@ -27,7 +27,7 @@ body {
 .landingpagefrontphoto {
     width: 100%;
     position: relative;
-    top: 8em;
+    top: 6em;
     object-fit: cover;
 }
 
@@ -138,4 +138,12 @@ a:active {
         border: solid 3px black;
         background-color: lightgray;
     }
+}
+
+.downarrow {
+    position: absolute;
+    top: 10vh;
+    width: 10vw;
+    margin-left: 40vw;
+    z-index: 80;
 }
