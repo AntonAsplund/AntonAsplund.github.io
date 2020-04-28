@@ -1,6 +1,6 @@
 
 
-  function productFunction(product, backgroundFiller) {
+  function productFunction(product, backgroundFiller, closeupexit) {
     var x = document.getElementById(product);
     if (x.style.display === "block") {
       x.style.display = "none";
