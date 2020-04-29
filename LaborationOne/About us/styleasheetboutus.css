@@ -45,6 +45,7 @@ h1 {
 
 body {
     margin: 0px;
+    background: radial-gradient(circle, rgba(255,255,255,0.01) 0%, rgba(133,145,148,0.2357536764705882) 60%, rgba(2,0,36,1) 100%);
 }
 
 footer {
@@ -307,6 +308,7 @@ main > section > h2 {
     display: none;
     position: fixed;
     z-index: 220;
+    opacity: 80%;
 }
 
 .officecard .exitcrossout {

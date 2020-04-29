@@ -48,7 +48,7 @@ main > section > h2 {
 
 body {
     margin: 0px;
-    background-color: white;
+    background: radial-gradient(circle, rgba(255,255,255,0.01) 0%, rgba(133,145,148,0.2357536764705882) 60%, rgba(2,0,36,1) 100%);
 }
 
 footer {
@@ -58,6 +58,10 @@ footer {
 
 a {
     text-decoration: none;
+}
+
+footer a {
+    color: white;
 }
 
 a:link, a:visited {
