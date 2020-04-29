@@ -1,13 +1,13 @@
 
   function employeeFunction(product, backgroundFiller) {
-    var x = document.getElementById(product);
+    var x = document.querySelector(product);
     if (x.style.display === "block") {
       x.style.display = "none";
     } else {
       x.style.display = "block";
     }
 
-    var backgroundFillerVariable = document.getElementById(backgroundFiller)
+    var backgroundFillerVariable = document.querySelector(backgroundFiller)
     if (backgroundFillerVariable.style.display === "block") {
       backgroundFillerVariable.style.display = "none";
     } else {
