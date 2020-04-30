@@ -22,7 +22,6 @@ h1 {
 
 body {
     margin: 0px;
-    background: radial-gradient(circle, rgba(255,255,255,0.01) 0%, rgba(133,145,148,0.2357536764705882) 60%, rgba(2,0,36,1) 100%);
 }
 
 .landingpagefrontphoto {
@@ -30,11 +29,6 @@ body {
     position: relative;
     top: 6em;
     object-fit: cover;
-}
-
-
-main > div {
-    text-align: center;
 }
 
 .flexcontainer{
@@ -61,6 +55,7 @@ main > div {
     padding: 0.5em;
     padding-left: 6vw;
     padding-right: 6vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 footer {
@@ -76,9 +71,10 @@ a:link, a:visited {
     color:black;
 }
 
-a:active {
-    color:blue;
+html {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
+
 
 @media (hover: hover) {
     .flexcontainer a:hover {
@@ -139,12 +135,4 @@ a:active {
         border: solid 3px black;
         background-color: lightgray;
     }
-}
-
-.downarrow {
-    position: absolute;
-    top: 10vh;
-    width: 10vw;
-    margin-left: 40vw;
-    z-index: 80;
 }
