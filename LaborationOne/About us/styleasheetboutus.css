@@ -165,7 +165,7 @@ a:link, a:visited {
 }
 
 
-@media (hover: none) {
+@media (pointer: coarse) {
     body {
         font-size: 0.5em;
     }
