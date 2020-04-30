@@ -223,7 +223,7 @@ a:link, a:visited {
         display: none;
     }
 
-    .navflexcontainer > * {
+    .navflexcontainer > div {
         display: none;
     }
 
