@@ -1,7 +1,7 @@
 header {
     border-bottom: solid 3px black;
     padding-left: 1em;
-    position: fixed;
+    position: absolute;
     z-index: 100;
     width: 100%;
     top: 0;
@@ -79,7 +79,7 @@ a:active {
 
 @media (min-width: 1001px){
     .navflexcontainer {
-        position: fixed;
+        position: absolute;
         z-index: 101;
         top: 1.55em;
         right:  0em;
@@ -162,8 +162,9 @@ a:active {
 
     #navbuttonone:checked ~ .navflexcontainer {
         position: relative;
-        left: 15vw;
-        bottom: 15vh;
+        left: 5em;
+        bottom: 9em;
+        
     }
     
     #navbuttonone:checked ~ .navflexcontainer > div {
@@ -192,7 +193,7 @@ a:active {
     }
 
     .scale-in-bl {
-        animation: scale-in-bl 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: scale-in-bl 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     }
     
     @keyframes scale-in-bl {
