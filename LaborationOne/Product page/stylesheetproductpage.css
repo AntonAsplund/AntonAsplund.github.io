@@ -119,6 +119,18 @@ a:link, a:visited {
         justify-content: center;
     }
     
+    .navflexcontainer > div > a{
+        font-family: sans-serif;
+        text-emphasis: none;
+        text-align: center;
+        margin-left: 0.5em;
+        margin-top: 0.5em;
+        padding: 0.2em;
+        border: solid 1px black;
+        background-color: lightgray;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
     .navflexcontainer > div {
         flex: 0 1 10em;
         font-family: sans-serif;
@@ -127,9 +139,6 @@ a:link, a:visited {
         width: 5.8em;
         margin-left: 0.5em;
         padding: 0.2em;
-        border: solid 1px black;
-        background-color: lightgray;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 }
 
@@ -146,18 +155,26 @@ a:link, a:visited {
         height: 2em;
     }
 
-    .navflexcontainer > div {
-        flex: 0 1 10em;
+    .navflexcontainer > div > a{
         font-family: sans-serif;
         text-emphasis: none;
         text-align: center;
-        width: 5.8em;
         margin-left: 0.5em;
         margin-top: 0.5em;
         padding: 0.2em;
         border: solid 1px black;
         background-color: lightgray;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .navflexcontainer > div {
+        flex: 0 1 10em;
+        font-family: sans-serif;
+        text-emphasis: none;
+        text-align: center;
+        margin-left: 0.5em;
+        margin-top: 0.5em;
+        padding: 0.2em;
     }
     
 }
@@ -173,6 +190,10 @@ a:link, a:visited {
     .productcard:hover {
         background-color: grey;
         color: black;
+    }
+
+    .navflexcontainer > div > a:hover {
+        background-color: gray;
     }
 
     .productcard:hover .priceproductcard {
