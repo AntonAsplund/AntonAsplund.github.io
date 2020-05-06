@@ -12,10 +12,8 @@ img.FrontImage {
 p.PersonInfo{
     max-width: 40em;
     height: 14em;
-    border: solid 1px black;
     padding: 1em;
     padding-top: 2em;
-    background-color: gold;
 }
 
 h1 {
@@ -28,41 +26,9 @@ td.FirstRow{
     text-decoration: underline;
 }
 
-.TemporaryImportance{
-    color: red;
-}
-
 .floatleft {
     float: left;
     margin: 1em;
 }
 
-.morethan1900px {
-    color: #4b5320;
-    border: solid 1px black;
-    display: inline;
-    background-color: cornflowerblue;
-}
 
-.between500and800px {
-    display:none;
-}
-
-@media (max-width: 1900px) {
-    .morethan1900px {
-        display: none;
-    }
-}
-
-@media (min-width: 500px) and (max-width: 800px) {
-    .between500and800px {
-        color: #4b5320;
-        border: solid 1px black;
-        display: inline;
-        background-color: cornflowerblue;
-    }
-}
-
-@media print {
-    #schoolassignments {display: none;}
-}
