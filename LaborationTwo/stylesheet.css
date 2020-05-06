@@ -3,6 +3,12 @@ body {
     font-family: 'Pathway Gothic One', sans-serif;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
 .character-information-presenter::-webkit-scrollbar-thumb {
     background-color: #ffe81f;
     outline: 1px solid #ffe81f;
@@ -43,7 +49,7 @@ h2 {
     border: 5px solid #ffe81f;
     border-radius: 15px;
     text-align: center;
-    grid-area: 1 / 2 / span 1 / span 1;
+    grid-area: 1 / 2 ;
     height: 40vh;
     text-align: left;
     overflow: auto;
@@ -106,4 +112,50 @@ h2 {
 
 .buttons-container > button:nth-child(even) {
     margin-left: 3em;
+}
+
+@media (max-width: 1776px) {
+    .buttons-container{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .buttons-container > button:nth-child(even) {
+        margin-left: 0em;
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        text-align:left;
+        display: block;
+    }
+
+    h1 {
+        text-align:left;
+        left: 1.9vw;
+    }
+
+    h2 {
+        text-align:left;
+        position:relative;
+        left: 2.5vw;
+    }
+
+    .layout-grid-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .character-information-presenter {
+        grid-area: 1 / 1 ;
+    }
+
+    .text-input-container {
+        grid-area: 2 / 1 ;
+    }
+    
+    .buttons-container {
+        grid-area: 3 / 1 ;
+    }
 }
