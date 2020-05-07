@@ -1,25 +1,14 @@
-let savedFavoritesArray = localStorage.getItem("savedFavoritesArray");
-
-console.log(savedFavoritesArray);
 
 window.onload = function() {
 
-    listFavorites();
     listSWAPI();
     buttonDisplayFavorite();
-    buttonDisplaySWAPI();
+    buttonDisplaySelectedCharacter();
     buttonSaveCharacterFavorites();
-    buttonRemoveCharacterFromFavorites();
+    buttonRemoveSelectedCharacterFromFavorites();
+    buttonRemoveAllCharactersFromFavorites();
 
 };
-
-function listFavorites() {
-    let dropDownListFavorites = document.querySelector("#js-list-favorite-characters");
-    dropDownListFavorites.addEventListener("focus", () => {
-        console.log("1");
-    });
-    
-}
 
 async function listSWAPI() {
     let counter = 1;
@@ -27,8 +16,7 @@ async function listSWAPI() {
     let dropDownListSWAPI = document.querySelector("#js-textbox-SWAPI-charachters");
     let datalistSwapi = document.querySelector("#list-SWAPI-charachters");
 
-    let response = await fetch(url);
-    let json = await response.json();
+    let json = await (await fetch(url)).json();
 
     while (json.next){
 
@@ -56,11 +44,30 @@ async function listSWAPI() {
 function buttonDisplayFavorite() {
     let searchFavorties = document.querySelector(".js-button-display-favorite-character");
     searchFavorties.addEventListener("click", () => {
-        console.log("3");
+
+        let informationPresenter = document.querySelector("#js-information-presenter");
+        informationPresenter.innerHTML = "";
+
+        let savedFavorites = JSON.parse(localStorage.getItem("savedFavorites") || "[]");
+
+        if(savedFavorites.length) {
+            for (let person of savedFavorites){
+
+                let newPersonInformation = document.createElement("li");
+
+                newPersonInformation.innerHTML = `Name: ${person.name} <br> 
+                Height: ${person.height} cm <br> 
+                Weight: ${person.weight} kg <br> 
+                Gender: ${person.gender} <br> 
+                Homeworld: ${person.homeworld}`;
+
+                informationPresenter.append(newPersonInformation);
+            }
+        }
     });
 };
 
-function buttonDisplaySWAPI() {
+function buttonDisplaySelectedCharacter() {
     let displaySWAPI = document.querySelector(".js-button-display-SWAPI-character");
     displaySWAPI.addEventListener("click", async () => {
         let informationPresenter = document.querySelector("#js-information-presenter");
@@ -75,20 +82,18 @@ function buttonDisplaySWAPI() {
             
             let personResponse = await (await fetch(url)).json();
 
-            if(personResponse.count){
+            if(personResponse.count && dropDownListSwapiInput.value !== ""){
                 let homeWorldResponse = await (await fetch(personResponse.results[0].homeworld)).json();
-                newPersonInformation.innerHTML = `Name: ${personResponse.results[0].name} <br> Homeworld: ${homeWorldResponse.name}`;
+                newPersonInformation.innerHTML = `Name: ${personResponse.results[0].name} <br> 
+                    Height: ${personResponse.results[0].height} cm <br> 
+                    Weight: ${personResponse.results[0].mass} kg <br> 
+                    Gender: ${personResponse.results[0].gender} <br> 
+                    Homeworld: ${homeWorldResponse.name}`;
             } else {
                 newPersonInformation.innerText = `No person by that name could be found.`;
             }
         
         } catch (error) {
-            if(personResponse.count){
-                let homeWorldResponse = await (await fetch(personResponse.results[0].homeworld)).json();
-                newPersonInformation.innerHTML = `Name: ${personResponse.results[0].name} <br> Homeworld: ${homeWorldResponse.name}`;
-            } else {
-                newPersonInformation.innerText = `No person by that name could be found.`;
-            }
             newPersonInformation.innerText = `Error while trying to retrieve data from server. Try again later.`;
         }
 
@@ -99,14 +104,72 @@ function buttonDisplaySWAPI() {
 
 function buttonSaveCharacterFavorites() {
     let saveCharacterToFavorites = document.querySelector(".js-button-save-character-to-fav");
-    saveCharacterToFavorites.addEventListener("click", () => {
-        console.log("5");
+    saveCharacterToFavorites.addEventListener("click", async () => {
+        
+        let savedFavorites = JSON.parse(localStorage.getItem("savedFavorites") || "[]");
+
+        let dropDownListSwapiInput = document.querySelector("#js-textbox-SWAPI-charachters");
+
+        let alreadySavedArray = savedFavorites.map(person => person.name == dropDownListSwapiInput.value);
+
+        let personNotSaved = new Boolean(true);
+
+        for (let result of alreadySavedArray)
+        {
+            if(result){
+                personNotSaved = false;
+            }
+        }
+
+        if(dropDownListSwapiInput.value && personNotSaved == true){
+
+            let url = `https://swapi.dev/api/people/?search=${dropDownListSwapiInput.value}`;
+            let personResponse = await (await fetch(url)).json();
+
+            if(personResponse.count){
+
+                let homeWorldResponse = await (await fetch(personResponse.results[0].homeworld)).json();
+
+                let character = {"name": `${dropDownListSwapiInput.value}`, 
+                "height": `${personResponse.results[0].height}`, 
+                "weight": `${personResponse.results[0].mass}`, 
+                "gender": `${personResponse.results[0].gender}`, 
+                "homeworld": `${homeWorldResponse.name}`
+                };
+
+                savedFavorites.push(character);
+
+                localStorage.setItem("savedFavorites", JSON.stringify(savedFavorites));
+            }
+        }
+        dropDownListSwapiInput.value = "";
+        
     });
 };
 
-function buttonRemoveCharacterFromFavorites() {
-    let removeCharacterFromFavorites = document.querySelector(".js-button-remove-character");
-    removeCharacterFromFavorites.addEventListener("click", () => {
-        console.log("6");
+function buttonRemoveAllCharactersFromFavorites() {
+    let removeAllCharacterFromFavorites = document.querySelector(".js-remove-all-characters-from-favorites");
+    removeAllCharacterFromFavorites.addEventListener("click", () => {
+        localStorage.removeItem("savedFavorites");
+
+        let informationPresenter = document.querySelector("#js-information-presenter");
+        informationPresenter.innerHTML = "";
+    });
+};
+
+function buttonRemoveSelectedCharacterFromFavorites() {
+    let removeSelectedCharacterFromFavorites = document.querySelector(".js-button-remove-character");
+    removeSelectedCharacterFromFavorites.addEventListener("click", () => {
+
+        let savedFavorites = JSON.parse(localStorage.getItem("savedFavorites") || "[]");
+
+        let dropDownListSwapiInput = document.querySelector("#js-textbox-SWAPI-charachters");
+
+        savedFavorites = savedFavorites.filter(person => person.name !== dropDownListSwapiInput.value);
+
+        localStorage.setItem("savedFavorites", JSON.stringify(savedFavorites));
+
+        let informationPresenter = document.querySelector("#js-information-presenter");
+        informationPresenter.innerHTML = "";
     });
 };
