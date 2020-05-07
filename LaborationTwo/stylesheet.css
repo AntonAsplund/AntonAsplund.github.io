@@ -1,6 +1,11 @@
 body {
     background: #000000;
     font-family: 'Pathway Gothic One', sans-serif;
+    background-image: url('Assets/star-wars-backgrounds-12-1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
 }
 
 header {
@@ -17,12 +22,8 @@ header {
 .character-information-presenter::-webkit-scrollbar {
     width: 2em;
 }
-.character-information-presenter::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px #ffe81f;
-}
 
 h1 {
-    padding-top: 5vh;
     font-size: 5em;
     width: 60vw;
     text-align: center;
@@ -46,6 +47,8 @@ h2 {
 }
 
 .character-information-presenter {
+    background: #000000;
+    opacity: 80%;
     border: 5px solid #ffe81f;
     border-radius: 15px;
     text-align: center;
@@ -55,10 +58,11 @@ h2 {
     overflow: auto;
 }
 
-.character-information-presenter p {
+.character-information-presenter li {
     font-size: 2em;
     color: #ffe81f ;
     margin-left: 1em;
+    margin-top: 1em;
 }
 
 .text-input-container {
@@ -67,13 +71,18 @@ h2 {
 }
 
 .text-input {
-    font-size: 3em;
+    font-size: 2em;
     border: solid 5px #ffe81f;
     border-radius: 15px;
     background: #000000;
+    opacity: 80%;
     color: #ffe81f;
     font-family: 'Pathway Gothic One', sans-serif;
     padding: 0.3em;
+}
+
+.text-input:nth-of-type(2){
+    margin-left: 2em;
 }
 
 .buttons-container {
@@ -157,5 +166,19 @@ h2 {
     
     .buttons-container {
         grid-area: 3 / 1 ;
+    }
+    
+}
+
+@media (max-width: 1560px){
+
+    .text-input-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .text-input:nth-of-type(2), .text-input{
+        margin-left: 0em;
+        margin-top: 1em;
     }
 }

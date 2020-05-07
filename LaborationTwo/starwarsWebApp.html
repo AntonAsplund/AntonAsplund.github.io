@@ -15,26 +15,21 @@
     <main>
         
         <section class="layout-grid-container">
-            <div class="character-information-presenter">
-                <p>Name: Luke Skywalker</p>
-                <p>Homeworld: Tatooine</p><br>
-                <p>Name: Leia Organa</p>
-                <p>Homeworld: Alderaan</p><br>
-                <p>Name: Darth Vader</p>
-                <p>Homeworld: Coruscant</p><br>
-                <p>Name: Yoda</p>
-                <p>Homeworld: Dagobah</p><br>
-                <p>Name: Mon Mothma</p>
-                <p>Homeworld: Yavin</p><br>
-
-            </div>
+            <ul class="character-information-presenter" id="js-information-presenter">
+            </ul>
             <div class="text-input-container">
-                <input type="text" class="text-input" placeholder="Type name">
+                <datalist id="list-favorite-characters">
+                </datalist>
+                <input type="text" list="list-favorite-characters" placeholder="Favorite Characters" class="text-input" id="js-list-favorite-characters"/>
+
+                <datalist id="list-SWAPI-charachters">
+                </datalist>
+                <input type="text" list="list-SWAPI-charachters" placeholder="SWAPI Characters" class="text-input" id="js-textbox-SWAPI-charachters"/>
             </div>
 
             <div class="buttons-container">
-                <button class="js-button-search-favorite-character">Search favorite characters</button>
-                <button class="js-button-search-SWAPI-character">Search SWAPI characters</button> <br><br>
+                <button class="js-button-display-favorite-character">Display favorite characters</button>
+                <button class="js-button-display-SWAPI-character">Display SWAPI characters</button> <br><br>
                 <button class="js-button-save-character-to-fav">Save selected character</button>
                 <button class="js-button-remove-character">Remove selected character from favorites</button>
             </div>
