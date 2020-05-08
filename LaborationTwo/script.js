@@ -7,6 +7,20 @@ window.onload = function() {
     buttonSaveCharacterFavorites();
     buttonRemoveSelectedCharacterFromFavorites();
     buttonRemoveAllCharactersFromFavorites();
+    buttonAddCustomFavorites();
+    buttonResetCookieAlert();
+    addCustomFavoritesContent();
+
+    let hasVisited = JSON.parse(localStorage.getItem("hasVisited"))
+
+    if(hasVisited) {
+        alert("Welcome back!");
+    } else {
+        alert("This page uses cookies. By continuing you accept the use of these to store a list of favorite characters. The information will only be used by the web application and not by any third party.");
+        hasVisited = "true";
+        localStorage.setItem("hasVisited", JSON.stringify(hasVisited));
+    }
+
 
 };
 
@@ -32,13 +46,6 @@ async function listSWAPI() {
         response = await fetch(url);
         json = await response.json();
     }
-
-    dropDownListSWAPI.addEventListener("focus", () => {
-        console.log("dropDownListSWAPI - focus");
-    });
-    dropDownListSWAPI.addEventListener("blur", () => {
-        console.log("dropDownListSWAPI - blur");
-    });
 }
 
 function buttonDisplayFavorite() {
@@ -130,11 +137,11 @@ function buttonSaveCharacterFavorites() {
             let url = `https://swapi.dev/api/people/?search=${dropDownListSwapiInput.value}`;
             let personResponse = await (await fetch(url)).json();
 
-            if(personResponse.results[0].homeworld.startsWith("http:")) {
-                personResponse.results[0].homeworld = personResponse.results[0].homeworld.slice(0,4) + "s" + personResponse.results[0].homeworld.slice(4);
-            }
-
             if(personResponse.count){
+
+                if(personResponse.results[0].homeworld.startsWith("http:")) {
+                    personResponse.results[0].homeworld = personResponse.results[0].homeworld.slice(0,4) + "s" + personResponse.results[0].homeworld.slice(4);
+                }
 
                 let homeWorldResponse = await (await fetch(personResponse.results[0].homeworld)).json();
 
@@ -148,6 +155,14 @@ function buttonSaveCharacterFavorites() {
                 savedFavorites.push(character);
 
                 localStorage.setItem("savedFavorites", JSON.stringify(savedFavorites));
+            } else {
+                let informationPresenter = document.querySelector("#js-information-presenter");
+                informationPresenter.innerHTML = "";
+                
+                let newInfo = document.createElement("li");
+                newInfo.innerText = `No person by that name could be found.`;;
+
+                informationPresenter.append(newInfo);
             }
         }
         dropDownListSwapiInput.value = "";
@@ -179,5 +194,85 @@ function buttonRemoveSelectedCharacterFromFavorites() {
 
         let informationPresenter = document.querySelector("#js-information-presenter");
         informationPresenter.innerHTML = "";
+    });
+};
+
+function buttonAddCustomFavorites() {
+    let addCustomFavorites = document.querySelector(".js-add-custom-favorite-character");
+    addCustomFavorites.addEventListener("click", () => {
+
+        let layoutGridContainer = document.querySelector(".layout-grid-container");
+        let layoutCustomCharacterContainer = document.querySelector(".layout-custom-character-container");
+
+        layoutGridContainer.style.display = "none";
+        layoutCustomCharacterContainer.style.display = "grid";
+
+        /*
+        setTimeout(function(){ 
+            layoutGridContainer.style.display = "grid";
+            layoutCustomCharacterContainer.style.display = "none"; 
+        }, 3000);
+        */
+
+    });
+
+}
+
+function addCustomFavoritesContent() {
+    let textBoxCustomName       = document.querySelector("#js-custom-character-name");
+    let textBoxCustomHeight     = document.querySelector("#js-custom-character-height");
+    let textBoxCustomWeight     = document.querySelector("#js-custom-character-weight");
+    let textBoxCustomGender     = document.querySelector("#js-custom-character-gender");
+    let textBoxCustomHomeworld  = document.querySelector("#js-custom-character-homeworld");
+    let textBoxNotEmptyWarning  = document.querySelector("#js-text-box-not-empty-warning");
+ 
+    textBoxCustomName.addEventListener("blur", () => {
+        if(textBoxCustomName.value === ""){
+            textBoxCustomName.style.borderColor = "#ff0000";
+            textBoxNotEmptyWarning.style.display = "block";
+        } else {
+            textBoxCustomName.style.borderColor = "#ffe81f";
+        }
+    });
+    textBoxCustomHeight.addEventListener("blur", () => {
+        if(textBoxCustomHeight.value === ""){
+            textBoxCustomHeight.style.borderColor = "#ff0000";
+            textBoxNotEmptyWarning.style.display = "block";
+        } else {
+            textBoxCustomHeight.style.borderColor = "#ffe81f";
+        }
+    });
+    textBoxCustomWeight.addEventListener("blur", () => {
+        if(textBoxCustomWeight.value === ""){
+            textBoxCustomWeight.style.borderColor = "#ff0000";
+            textBoxNotEmptyWarning.style.display = "block";
+        } else {
+            textBoxCustomWeight.style.borderColor = "#ffe81f";
+        }
+    });
+    textBoxCustomGender.addEventListener("blur", () => {
+        if(textBoxCustomGender.value === ""){
+            textBoxCustomGender.style.borderColor = "#ff0000";
+            textBoxNotEmptyWarning.style.display = "block";
+        } else {
+            textBoxCustomGender.style.borderColor = "#ffe81f";
+        }
+    });
+    textBoxCustomHomeworld.addEventListener("blur", () => {
+        if(textBoxCustomHomeworld.value === ""){
+            textBoxCustomHomeworld.style.borderColor = "#ff0000";
+            textBoxNotEmptyWarning.style.display = "block";
+        } else {
+            textBoxCustomHomeworld.style.borderColor = "#ffe81f";
+        }
+    });
+};
+
+function buttonResetCookieAlert() {
+    let resetCookieAlert = document.querySelector(".js-Test-reset-cookie-alert");
+    resetCookieAlert.addEventListener("click", () => {
+        let hasVisited = JSON.parse(localStorage.getItem("hasVisited"))
+        hasVisited = "";
+        localStorage.setItem("hasVisited", JSON.stringify(hasVisited));
     });
 };

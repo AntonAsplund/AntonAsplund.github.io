@@ -111,6 +111,54 @@ h2 {
     background-color: #97890c;
 }
 
+.buttons-container > button:nth-child(even) {
+    margin-left: 3em;
+}
+
+.layout-custom-character-container {
+    display:none;
+    width: 60vw;
+    height: 60vh;
+    margin-left: 20vw;
+}
+
+.layout-custom-character-container .text-input{
+    margin-left: 0em;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+.layout-custom-character-container > p {
+    color: #ff0000;
+    background-color: #000000;
+    opacity: 80%;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 2em;
+    text-align: center;
+    grid-area: 2 / 1 ;
+    position: relative;
+    width: 20vw;
+    left: 20vw;
+    padding: 0.2em;
+    border: 5px solid #ffe81f;
+    border-radius: 15px;
+    display: none;
+}
+
+.layout-custom-character-container .text-input-container{
+    grid-area: 3 / 1;
+}
+
+.layout-custom-character-container .buttons-container {
+    font-size: 0.5em;
+    text-align: center;
+    grid-area: 4 / 1 ;
+}
+
+.layout-custom-character-container > .buttons-container > button:first-of-type {
+    margin-top: 3em;
+}
+
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }
     20% { transform: translate(-3px, 0px) rotate(1deg); }
@@ -118,10 +166,6 @@ h2 {
     60% { transform: translate(-3px, 1px) rotate(0deg); }
     80% { transform: translate(-1px, -1px) rotate(1deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
-
-.buttons-container > button:nth-child(even) {
-    margin-left: 3em;
 }
 
 @media (max-width: 1776px) {
