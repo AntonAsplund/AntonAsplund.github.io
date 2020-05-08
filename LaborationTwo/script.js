@@ -130,6 +130,10 @@ function buttonSaveCharacterFavorites() {
             let url = `https://swapi.dev/api/people/?search=${dropDownListSwapiInput.value}`;
             let personResponse = await (await fetch(url)).json();
 
+            if(personResponse.results[0].homeworld.startsWith("http:")) {
+                personResponse.results[0].homeworld = personResponse.results[0].homeworld.slice(0,4) + "s" + personResponse.results[0].homeworld.slice(4);
+            }
+
             if(personResponse.count){
 
                 let homeWorldResponse = await (await fetch(personResponse.results[0].homeworld)).json();
