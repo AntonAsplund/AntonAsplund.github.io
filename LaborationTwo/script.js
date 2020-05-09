@@ -7,9 +7,11 @@ window.onload = function() {
     buttonSaveCharacterFavorites();
     buttonRemoveSelectedCharacterFromFavorites();
     buttonRemoveAllCharactersFromFavorites();
-    buttonAddCustomFavorites();
+    buttonGoToAddCustomFavorites();
+    buttonSaveNewCustomCharacter();
     buttonResetCookieAlert();
-    addCustomFavoritesContent();
+    addCustomTextboxFavoritesEvents();
+    buttonReturnToMainFromCustomCharacter();
 
     let hasVisited = JSON.parse(localStorage.getItem("hasVisited"))
 
@@ -27,8 +29,8 @@ window.onload = function() {
 async function listSWAPI() {
     let counter = 1;
     let url = `https://swapi.dev/api/people/?page=${counter}`;
-    let dropDownListSWAPI = document.querySelector("#js-textbox-SWAPI-charachters");
-    let datalistSwapi = document.querySelector("#list-SWAPI-charachters");
+    let dropDownListSWAPI = document.querySelector("#js-textbox-SWAPI-characters");
+    let datalistSwapi = document.querySelector("#list-SWAPI-characters");
 
     let json = await (await fetch(url)).json();
 
@@ -80,8 +82,8 @@ function buttonDisplaySelectedCharacter() {
         let informationPresenter = document.querySelector("#js-information-presenter");
         informationPresenter.innerHTML = "";
 
-        let dropDownListSwapiInput = document.querySelector("#js-textbox-SWAPI-charachters");
-        let newPersonInformation = document.createElement("li");
+        let dropDownListSwapiInput  = document.querySelector("#js-textbox-SWAPI-characters");
+        let newPersonInformation    = document.createElement("li");
 
         let url = `https://swapi.dev/api/people/?search=${dropDownListSwapiInput.value}`;
 
@@ -101,11 +103,15 @@ function buttonDisplaySelectedCharacter() {
                     Gender: ${personResponse.results[0].gender} <br> 
                     Homeworld: ${homeWorldResponse.name}`;
             } else {
-                newPersonInformation.innerText = `No person by that name could be found.`;
+                newPersonInformation.innerText = `No person by that name could be found on the server, try adding a custom character.`;
             }
         
         } catch (error) {
-            newPersonInformation.innerText = `Error while trying to retrieve data from server. Try again later.`;
+            if(dropDownListSwapiInput.value !== "") {
+                newPersonInformation.innerText = `No person by that name could be found on the server, try adding a custom character.`;
+            } else {
+                newPersonInformation.innerText = `Error while trying to retrieve data from server. Try again later.`;
+            }
         }
 
         informationPresenter.append(newPersonInformation);
@@ -119,7 +125,7 @@ function buttonSaveCharacterFavorites() {
         
         let savedFavorites = JSON.parse(localStorage.getItem("savedFavorites") || "[]");
 
-        let dropDownListSwapiInput = document.querySelector("#js-textbox-SWAPI-charachters");
+        let dropDownListSwapiInput = document.querySelector("#js-textbox-SWAPI-characters");
 
         let alreadySavedArray = savedFavorites.map(person => person.name == dropDownListSwapiInput.value);
 
@@ -160,7 +166,7 @@ function buttonSaveCharacterFavorites() {
                 informationPresenter.innerHTML = "";
                 
                 let newInfo = document.createElement("li");
-                newInfo.innerText = `No person by that name could be found.`;;
+                newInfo.innerText = `No person by that name could be found on the server, try adding a custom character.`;
 
                 informationPresenter.append(newInfo);
             }
@@ -173,9 +179,9 @@ function buttonSaveCharacterFavorites() {
 function buttonRemoveAllCharactersFromFavorites() {
     let removeAllCharacterFromFavorites = document.querySelector(".js-remove-all-characters-from-favorites");
     removeAllCharacterFromFavorites.addEventListener("click", () => {
+        let informationPresenter = document.querySelector("#js-information-presenter");
         localStorage.removeItem("savedFavorites");
 
-        let informationPresenter = document.querySelector("#js-information-presenter");
         informationPresenter.innerHTML = "";
     });
 };
@@ -184,89 +190,161 @@ function buttonRemoveSelectedCharacterFromFavorites() {
     let removeSelectedCharacterFromFavorites = document.querySelector(".js-button-remove-character");
     removeSelectedCharacterFromFavorites.addEventListener("click", () => {
 
-        let savedFavorites = JSON.parse(localStorage.getItem("savedFavorites") || "[]");
+        let savedFavorites          = JSON.parse(localStorage.getItem("savedFavorites") || "[]");
+        let informationPresenter    = document.querySelector("#js-information-presenter");
+        let dropDownListSwapiInput  = document.querySelector("#js-textbox-SWAPI-characters");
+        let newInfo                 = document.createElement("li");
 
-        let dropDownListSwapiInput = document.querySelector("#js-textbox-SWAPI-charachters");
-
-        savedFavorites = savedFavorites.filter(person => person.name !== dropDownListSwapiInput.value);
-
+        savedFavorites = savedFavorites.filter(person => person.name.toLowerCase() !== dropDownListSwapiInput.value.toLowerCase());
         localStorage.setItem("savedFavorites", JSON.stringify(savedFavorites));
 
-        let informationPresenter = document.querySelector("#js-information-presenter");
+        newInfo.innerText = `Favorites have been updated. If the person is not removed, please check the spelling of the characters name.`;
+        dropDownListSwapiInput.value = "";
         informationPresenter.innerHTML = "";
+        informationPresenter.append(newInfo);
     });
 };
 
-function buttonAddCustomFavorites() {
-    let addCustomFavorites = document.querySelector(".js-add-custom-favorite-character");
-    addCustomFavorites.addEventListener("click", () => {
+function buttonGoToAddCustomFavorites() {
+    let GoToAddCustomFavorites = document.querySelector(".js-go-to-add-custom-favorite-character");
+    GoToAddCustomFavorites.addEventListener("click", () => {
 
-        let layoutGridContainer = document.querySelector(".layout-grid-container");
-        let layoutCustomCharacterContainer = document.querySelector(".layout-custom-character-container");
+        let layoutGridContainer             = document.querySelector(".layout-grid-container");
+        let layoutCustomCharacterContainer  = document.querySelector(".layout-custom-character-container");
 
         layoutGridContainer.style.display = "none";
         layoutCustomCharacterContainer.style.display = "grid";
-
-        /*
-        setTimeout(function(){ 
-            layoutGridContainer.style.display = "grid";
-            layoutCustomCharacterContainer.style.display = "none"; 
-        }, 3000);
-        */
 
     });
 
 }
 
-function addCustomFavoritesContent() {
-    let textBoxCustomName       = document.querySelector("#js-custom-character-name");
-    let textBoxCustomHeight     = document.querySelector("#js-custom-character-height");
-    let textBoxCustomWeight     = document.querySelector("#js-custom-character-weight");
-    let textBoxCustomGender     = document.querySelector("#js-custom-character-gender");
-    let textBoxCustomHomeworld  = document.querySelector("#js-custom-character-homeworld");
-    let textBoxNotEmptyWarning  = document.querySelector("#js-text-box-not-empty-warning");
- 
-    textBoxCustomName.addEventListener("blur", () => {
-        if(textBoxCustomName.value === ""){
-            textBoxCustomName.style.borderColor = "#ff0000";
-            textBoxNotEmptyWarning.style.display = "block";
-        } else {
-            textBoxCustomName.style.borderColor = "#ffe81f";
-        }
-    });
-    textBoxCustomHeight.addEventListener("blur", () => {
-        if(textBoxCustomHeight.value === ""){
-            textBoxCustomHeight.style.borderColor = "#ff0000";
-            textBoxNotEmptyWarning.style.display = "block";
-        } else {
-            textBoxCustomHeight.style.borderColor = "#ffe81f";
-        }
-    });
-    textBoxCustomWeight.addEventListener("blur", () => {
-        if(textBoxCustomWeight.value === ""){
-            textBoxCustomWeight.style.borderColor = "#ff0000";
-            textBoxNotEmptyWarning.style.display = "block";
-        } else {
-            textBoxCustomWeight.style.borderColor = "#ffe81f";
-        }
-    });
-    textBoxCustomGender.addEventListener("blur", () => {
-        if(textBoxCustomGender.value === ""){
-            textBoxCustomGender.style.borderColor = "#ff0000";
-            textBoxNotEmptyWarning.style.display = "block";
-        } else {
-            textBoxCustomGender.style.borderColor = "#ffe81f";
-        }
-    });
-    textBoxCustomHomeworld.addEventListener("blur", () => {
-        if(textBoxCustomHomeworld.value === ""){
-            textBoxCustomHomeworld.style.borderColor = "#ff0000";
-            textBoxNotEmptyWarning.style.display = "block";
-        } else {
-            textBoxCustomHomeworld.style.borderColor = "#ffe81f";
-        }
+function buttonSaveNewCustomCharacter() {
+    let textBoxCustomName           = document.querySelector("#js-custom-character-name");
+    let textBoxCustomHeight         = document.querySelector("#js-custom-character-height");
+    let textBoxCustomWeight         = document.querySelector("#js-custom-character-weight");
+    let textBoxCustomGender         = document.querySelector("#js-custom-character-gender");
+    let textBoxCustomHomeworld      = document.querySelector("#js-custom-character-homeworld");
+    let textBoxNotEmptyWarning      = document.querySelector("#js-text-box-not-empty-warning");
+    let textBoxIsNotNumberWarning   = document.querySelector("#js-text-box-is-not-number-warning");
+    let personHasAlreadyBeenSaved    = document.querySelector("#js-person-is-already-saved");
+    
+    let saveCustomCharacter     = document.querySelector(".js-button-save-custom-character");
+
+    saveCustomCharacter.addEventListener("click", () => {
+        if(
+            addInputWarningToTextbox(textBoxCustomName, textBoxNotEmptyWarning, personHasAlreadyBeenSaved) &&
+            addInputWarningToNumberTextbox(textBoxCustomHeight, textBoxNotEmptyWarning, textBoxIsNotNumberWarning, personHasAlreadyBeenSaved) &&
+            addInputWarningToNumberTextbox(textBoxCustomWeight, textBoxNotEmptyWarning, textBoxIsNotNumberWarning, personHasAlreadyBeenSaved) &&
+            addInputWarningToTextbox(textBoxCustomGender, textBoxNotEmptyWarning, personHasAlreadyBeenSaved) &&
+            addInputWarningToTextbox(textBoxCustomHomeworld, textBoxNotEmptyWarning, personHasAlreadyBeenSaved)
+        ){
+            let savedFavorites = JSON.parse(localStorage.getItem("savedFavorites") || "[]");
+
+            let alreadySavedArray = savedFavorites.map(person => person.name == textBoxCustomName.value);
+
+            console.log("textbox custom name: " + textBoxCustomName.value);
+
+            let personNotSaved = new Boolean(true);
+
+            for (let result of alreadySavedArray)
+            {
+                if(result){
+                    personNotSaved = false;
+                }
+            }
+
+            if(personNotSaved){
+                let character = {"name": `${textBoxCustomName.value}`, 
+                    "height": `${textBoxCustomHeight.value}`, 
+                    "weight": `${textBoxCustomWeight.value}`, 
+                    "gender": `${textBoxCustomGender.value}`, 
+                    "homeworld": `${textBoxCustomHomeworld.value}`
+                };
+
+                savedFavorites.push(character);
+
+                localStorage.setItem("savedFavorites", JSON.stringify(savedFavorites));
+
+                textBoxCustomName.value = "";
+                textBoxCustomHeight.value = "";
+                textBoxCustomWeight.value = "";
+                textBoxCustomGender.value = "";
+                textBoxCustomHomeworld.value = "";
+                textBoxNotEmptyWarning.style.display = "none";
+                textBoxIsNotNumberWarning.style.display = "none";
+                personHasAlreadyBeenSaved.style.display = "none";
+            } else {
+                textBoxNotEmptyWarning.style.display = "none";
+                textBoxIsNotNumberWarning.style.display = "none";
+                personHasAlreadyBeenSaved.style.display = "block";
+            }
+        };
     });
 };
+
+function buttonReturnToMainFromCustomCharacter() {
+    let returnToMainFromCustomCharacter = document.querySelector(".js-button-return");
+    let layoutGridContainer             = document.querySelector(".layout-grid-container");
+    let layoutCustomCharacterContainer  = document.querySelector(".layout-custom-character-container");
+
+    returnToMainFromCustomCharacter.addEventListener("click", () => {
+        layoutGridContainer.style.display = "grid";
+        layoutCustomCharacterContainer.style.display = "none";
+    });
+}
+
+function addCustomTextboxFavoritesEvents() {
+    let textBoxCustomName           = document.querySelector("#js-custom-character-name");
+    let textBoxCustomHeight         = document.querySelector("#js-custom-character-height");
+    let textBoxCustomWeight         = document.querySelector("#js-custom-character-weight");
+    let textBoxCustomGender         = document.querySelector("#js-custom-character-gender");
+    let textBoxCustomHomeworld      = document.querySelector("#js-custom-character-homeworld");
+    let textBoxNotEmptyWarning      = document.querySelector("#js-text-box-not-empty-warning");
+    let textBoxIsNotNumberWarning   = document.querySelector("#js-text-box-is-not-number-warning");
+    let personHasAlreadyBeenSaved   = document.querySelector("#js-person-is-already-saved");
+ 
+    textBoxCustomName.addEventListener("blur", () => {
+        addInputWarningToTextbox(textBoxCustomName, textBoxNotEmptyWarning, personHasAlreadyBeenSaved);
+    });
+    textBoxCustomHeight.addEventListener("blur", () => {
+        addInputWarningToNumberTextbox(textBoxCustomHeight, textBoxNotEmptyWarning, textBoxIsNotNumberWarning, personHasAlreadyBeenSaved)
+    });
+    textBoxCustomWeight.addEventListener("blur", () => {
+        addInputWarningToNumberTextbox(textBoxCustomWeight, textBoxNotEmptyWarning, textBoxIsNotNumberWarning, personHasAlreadyBeenSaved)
+    });
+    textBoxCustomGender.addEventListener("blur", () => {
+        addInputWarningToTextbox(textBoxCustomGender, textBoxNotEmptyWarning, personHasAlreadyBeenSaved)
+    });
+    textBoxCustomHomeworld.addEventListener("blur",() => {
+        addInputWarningToTextbox(textBoxCustomHomeworld, textBoxNotEmptyWarning, personHasAlreadyBeenSaved)
+    });
+};
+
+function addInputWarningToTextbox(textbox, textBoxNotEmptyWarning, personHasAlreadyBeenSaved) {
+    personHasAlreadyBeenSaved.style.display = "none";
+    if(textbox.value === ""){
+        textbox.style.borderColor = "#ff0000";
+        textBoxNotEmptyWarning.style.display = "block";
+    } else {
+        textbox.style.borderColor = "#ffe81f";
+        return true;
+    };
+}
+
+function addInputWarningToNumberTextbox(textbox, textBoxNotEmptyWarning, textBoxIsNotNumberWarning, personHasAlreadyBeenSaved) {
+    personHasAlreadyBeenSaved.style.display = "none";
+    if(!isNaN(textbox.value) && textbox.value !== ""){
+        textbox.style.borderColor = "#ffe81f";
+        return true;
+    } else if (textbox.value === "") {
+        textbox.style.borderColor = "#ff0000";
+        textBoxNotEmptyWarning.style.display = "block";
+    } else if (isNaN(textbox.value)){
+        textbox.style.borderColor = "#ff0000";
+        textBoxIsNotNumberWarning.style.display = "block";
+    };
+}
 
 function buttonResetCookieAlert() {
     let resetCookieAlert = document.querySelector(".js-Test-reset-cookie-alert");
