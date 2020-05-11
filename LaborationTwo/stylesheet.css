@@ -101,6 +101,7 @@ h2 {
     font-size: 3em;
     margin-top: 1em;
     box-shadow: 3px 3px grey;
+    cursor: pointer;
 }
 
 .buttons-container > button:hover {
@@ -215,15 +216,3 @@ h2 {
     
 }
 
-@media (max-width: 1560px){
-
-    .text-input-container{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .text-input:nth-of-type(2), .text-input{
-        margin-left: 0em;
-        margin-top: 1em;
-    }
-}

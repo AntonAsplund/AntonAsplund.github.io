@@ -124,7 +124,7 @@ function buttonSaveCharacterFavorites() {
     saveCharacterToFavorites.addEventListener("click", async () => {
         
         let savedFavorites = JSON.parse(localStorage.getItem("savedFavorites") || "[]");
-
+        let informationPresenter = document.querySelector("#js-information-presenter");
         let dropDownListSwapiInput = document.querySelector("#js-textbox-SWAPI-characters");
 
         let alreadySavedArray = savedFavorites.map(person => person.name == dropDownListSwapiInput.value);
@@ -162,7 +162,6 @@ function buttonSaveCharacterFavorites() {
 
                 localStorage.setItem("savedFavorites", JSON.stringify(savedFavorites));
             } else {
-                let informationPresenter = document.querySelector("#js-information-presenter");
                 informationPresenter.innerHTML = "";
                 
                 let newInfo = document.createElement("li");
@@ -170,6 +169,13 @@ function buttonSaveCharacterFavorites() {
 
                 informationPresenter.append(newInfo);
             }
+        }
+
+        if(dropDownListSwapiInput.value == "") {
+            informationPresenter.innerHTML = "";
+            let newInfo = document.createElement("li");
+            newInfo.innerText = `Selected character textbox cannot be empty.`;
+            informationPresenter.append(newInfo);
         }
         dropDownListSwapiInput.value = "";
         
@@ -194,6 +200,8 @@ function buttonRemoveSelectedCharacterFromFavorites() {
         let informationPresenter    = document.querySelector("#js-information-presenter");
         let dropDownListSwapiInput  = document.querySelector("#js-textbox-SWAPI-characters");
         let newInfo                 = document.createElement("li");
+
+        /* add a check if savedFavorites contain the name specified, if not print does not contain else person removed. */ 
 
         savedFavorites = savedFavorites.filter(person => person.name.toLowerCase() !== dropDownListSwapiInput.value.toLowerCase());
         localStorage.setItem("savedFavorites", JSON.stringify(savedFavorites));
@@ -320,6 +328,20 @@ function addCustomTextboxFavoritesEvents() {
         addInputWarningToTextbox(textBoxCustomHomeworld, textBoxNotEmptyWarning, personHasAlreadyBeenSaved)
     });
 };
+
+
+function buttonChangeFavoriteCharacter() {
+    let changeFavoriteCharacter = document.querySelector(".js-update-a-favorite-character");
+    changeFavoriteCharacter.addEventListener("", () => {
+        let layoutGridContainer             = document.querySelector(".layout-grid-container");
+        let layoutCustomCharacterContainer  = document.querySelector(".layout-custom-character-container");
+
+        layoutGridContainer.style.display = "none";
+        layoutCustomCharacterContainer.style.display = "grid";
+
+
+    });
+}
 
 function addInputWarningToTextbox(textbox, textBoxNotEmptyWarning, personHasAlreadyBeenSaved) {
     personHasAlreadyBeenSaved.style.display = "none";
