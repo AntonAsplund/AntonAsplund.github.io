@@ -5,13 +5,15 @@ window.onload = function() {
     buttonDisplayFavorite();
     buttonDisplaySelectedCharacter();
     buttonSaveCharacterFavorites();
-    buttonRemoveSelectedCharacterFromFavorites();
+    buttonsRemoveCharacterFromFavorites();
     buttonRemoveAllCharactersFromFavorites();
-    buttonGoToAddCustomFavorites();
+    buttonGoToCustomFavorites();
     buttonSaveNewCustomCharacter();
     buttonResetCookieAlert();
     addCustomTextboxFavoritesEvents();
     buttonReturnToMainFromCustomCharacter();
+    buttonUpdateFavoriteCharacter();
+    buttonRemoveCharacterMenu();
 
     let hasVisited = JSON.parse(localStorage.getItem("hasVisited"))
 
@@ -29,8 +31,7 @@ window.onload = function() {
 async function listSWAPI() {
     let counter = 1;
     let url = `https://swapi.dev/api/people/?page=${counter}`;
-    let dropDownListSWAPI = document.querySelector("#js-textbox-SWAPI-characters");
-    let datalistSwapi = document.querySelector("#list-SWAPI-characters");
+    let datalistSWAPI = document.querySelector("#list-SWAPI-characters");
 
     let json = await (await fetch(url)).json();
 
@@ -40,7 +41,7 @@ async function listSWAPI() {
             let option = document.createElement("option");
             console.log(character.name);
             option.innerText = character.name;
-            datalistSwapi.append(option);
+            datalistSWAPI.append(option);
         }
 
         counter++;
@@ -103,7 +104,7 @@ function buttonDisplaySelectedCharacter() {
                     Gender: ${personResponse.results[0].gender} <br> 
                     Homeworld: ${homeWorldResponse.name}`;
             } else {
-                newPersonInformation.innerText = `No person by that name could be found on the server, try adding a custom character.`;
+                newPersonInformation.innerText = `No person by that name could be found on the SWAPI server, try adding a custom character.`;
             }
         
         } catch (error) {
@@ -184,38 +185,81 @@ function buttonSaveCharacterFavorites() {
 
 function buttonRemoveAllCharactersFromFavorites() {
     let removeAllCharacterFromFavorites = document.querySelector(".js-remove-all-characters-from-favorites");
+    let layoutGridContainer             = document.querySelector(".layout-grid-container");
+    let layoutCustomCharacterContainer  = document.querySelector(".layout-custom-character-container");
+
     removeAllCharacterFromFavorites.addEventListener("click", () => {
         let informationPresenter = document.querySelector("#js-information-presenter");
         localStorage.removeItem("savedFavorites");
 
         informationPresenter.innerHTML = "";
-    });
-};
-
-function buttonRemoveSelectedCharacterFromFavorites() {
-    let removeSelectedCharacterFromFavorites = document.querySelector(".js-button-remove-character");
-    removeSelectedCharacterFromFavorites.addEventListener("click", () => {
-
-        let savedFavorites          = JSON.parse(localStorage.getItem("savedFavorites") || "[]");
-        let informationPresenter    = document.querySelector("#js-information-presenter");
-        let dropDownListSwapiInput  = document.querySelector("#js-textbox-SWAPI-characters");
-        let newInfo                 = document.createElement("li");
-
-        /* add a check if savedFavorites contain the name specified, if not print does not contain else person removed. */ 
-
-        savedFavorites = savedFavorites.filter(person => person.name.toLowerCase() !== dropDownListSwapiInput.value.toLowerCase());
-        localStorage.setItem("savedFavorites", JSON.stringify(savedFavorites));
-
-        newInfo.innerText = `Favorites have been updated. If the person is not removed, please check the spelling of the characters name.`;
-        dropDownListSwapiInput.value = "";
-        informationPresenter.innerHTML = "";
+        let newInfo = document.createElement("li");
+        newInfo.innerText = `All favorite characters have been removed.`;
         informationPresenter.append(newInfo);
+        layoutGridContainer.style.display = "grid";
+        layoutCustomCharacterContainer.style.display = "none";
     });
 };
 
-function buttonGoToAddCustomFavorites() {
-    let GoToAddCustomFavorites = document.querySelector(".js-go-to-add-custom-favorite-character");
-    GoToAddCustomFavorites.addEventListener("click", () => {
+function buttonRemoveCharacterMenu(){
+    let layoutRemoveCustomCharacterContainer      = document.querySelector(".layout-remove-custom-character-container");
+    let layoutCustomCharacterContainer                  = document.querySelector(".layout-custom-character-container");
+    let removeCharacterFromFavorites                    = document.querySelector(".js-button-remove-character");
+    let removeCharacterFromFavoritesButtons             = document.querySelector(".remove-character-button-container");
+    let updateCharacterFromFavoritesButtons             = document.querySelector(".update-character-button-container");
+
+    removeCharacterFromFavorites.addEventListener("click", () => {
+        layoutRemoveCustomCharacterContainer.style.display = "grid";
+        layoutCustomCharacterContainer.style.display = "none";
+
+    });
+};
+
+function buttonsRemoveCharacterFromFavorites() {
+    let removeCharacterFromFavorites                    = document.querySelector(".js-button-remove-custom-character");
+    let savedFavorites                                  = JSON.parse(localStorage.getItem("savedFavorites") || "[]");
+    let informationPresenter                            = document.querySelector("#js-information-presenter");
+    let textBoxRemoveCustomName                   = document.querySelector("#js-update-remove-custom-character-name");
+    let newInfo                                         = document.createElement("li");
+    let layoutGridContainer                             = document.querySelector(".layout-grid-container");
+    let layoutCustomCharacterContainer                  = document.querySelector(".layout-custom-character-container");
+    let layoutUpdateRemoveCustomCharacterContainer      = document.querySelector(".layout-remove-custom-character-container");
+
+    removeCharacterFromFavorites.addEventListener("click", () => {
+        informationPresenter.innerHTML = "";
+
+        let containsCharacterToRemove = savedFavorites.find(person => person.name.toLowerCase() == textBoxRemoveCustomName.value.toLowerCase());
+        
+        if(containsCharacterToRemove) {
+            savedFavorites = savedFavorites.filter(person => person.name.toLowerCase() !== textBoxRemoveCustomName.value.toLowerCase());
+            localStorage.setItem("savedFavorites", JSON.stringify(savedFavorites));
+
+            newInfo.innerText = `Favorites have been updated. The person ${textBoxRemoveCustomName.value} has been removed`;
+            
+        }  else {
+            newInfo.innerText = `No person with that name has been found in the list, please check spelling and try again.`;
+        }    
+
+        informationPresenter.append(newInfo);
+        textBoxRemoveCustomName.value = "";
+        layoutGridContainer.style.display = "grid";
+        layoutCustomCharacterContainer.style.display = "none";
+        layoutUpdateRemoveCustomCharacterContainer.style.display = "none";
+
+    });
+
+    let cancelRemoveCharacterFromFavorites = document.querySelector(".js-button-cancel-remove-custom-character");
+
+    cancelRemoveCharacterFromFavorites.addEventListener("click", () => {
+        layoutCustomCharacterContainer.style.display = "grid";
+        layoutUpdateRemoveCustomCharacterContainer.style.display = "none";
+    });
+};
+
+function buttonGoToCustomFavorites() {
+    let GoToCustomFavorites = document.querySelector(".js-go-to-custom-favorite-character-menu");
+
+    GoToCustomFavorites.addEventListener("click", () => {
 
         let layoutGridContainer             = document.querySelector(".layout-grid-container");
         let layoutCustomCharacterContainer  = document.querySelector(".layout-custom-character-container");
@@ -250,8 +294,6 @@ function buttonSaveNewCustomCharacter() {
             let savedFavorites = JSON.parse(localStorage.getItem("savedFavorites") || "[]");
 
             let alreadySavedArray = savedFavorites.map(person => person.name == textBoxCustomName.value);
-
-            console.log("textbox custom name: " + textBoxCustomName.value);
 
             let personNotSaved = new Boolean(true);
 
@@ -295,10 +337,12 @@ function buttonReturnToMainFromCustomCharacter() {
     let returnToMainFromCustomCharacter = document.querySelector(".js-button-return");
     let layoutGridContainer             = document.querySelector(".layout-grid-container");
     let layoutCustomCharacterContainer  = document.querySelector(".layout-custom-character-container");
+    let informationPresenter            = document.querySelector("#js-information-presenter");
 
     returnToMainFromCustomCharacter.addEventListener("click", () => {
         layoutGridContainer.style.display = "grid";
         layoutCustomCharacterContainer.style.display = "none";
+        informationPresenter.innerHTML = "";
     });
 }
 
@@ -330,16 +374,27 @@ function addCustomTextboxFavoritesEvents() {
 };
 
 
-function buttonChangeFavoriteCharacter() {
-    let changeFavoriteCharacter = document.querySelector(".js-update-a-favorite-character");
-    changeFavoriteCharacter.addEventListener("", () => {
-        let layoutGridContainer             = document.querySelector(".layout-grid-container");
-        let layoutCustomCharacterContainer  = document.querySelector(".layout-custom-character-container");
+function buttonUpdateFavoriteCharacter() {
+    let changeFavoriteCharacter                     = document.querySelector(".js-update-a-favorite-character");
+    let layoutGridContainer                         = document.querySelector(".layout-grid-container");
+    let layoutCustomCharacterContainer              = document.querySelector(".layout-custom-character-container");
+    let layoutUpdateCustomCharacterContainer        = document.querySelector(".layout-update-custom-character-container");
 
-        layoutGridContainer.style.display = "none";
+    changeFavoriteCharacter.addEventListener("click", () => {
+
+        layoutCustomCharacterContainer.style.display = "none";
+        layoutUpdateCustomCharacterContainer.style.display = "grid";
+
+        
+
+    });
+
+    let cancelUpdateCharacterButton = document.querySelector(".js-button-cancel-update-custom-character");
+
+    cancelUpdateCharacterButton.addEventListener("click", () => {
+
         layoutCustomCharacterContainer.style.display = "grid";
-
-
+        layoutUpdateCustomCharacterContainer.style.display = "none";
     });
 }
 

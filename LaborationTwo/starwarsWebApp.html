@@ -26,11 +26,8 @@
             <div class="buttons-container">
                 <button class="js-button-save-character-to-fav">Save selected character</button>
                 <button class="js-button-display-SWAPI-character">Display selected character</button> <br><br>
-                <button class="js-button-display-favorite-character">Display favorite characters</button>
-                <button class="js-button-remove-character">Remove selected character from favorites</button> <br><br>
-                <button class="js-go-to-add-custom-favorite-character">Add a custom favorite character</button>
-                <button class="js-remove-all-characters-from-favorites">Remove all characters from favorites</button>
-                <button class="js-update-a-favorite-character">Update a favorite character</button>
+                <button class="js-go-to-custom-favorite-character-menu">Custom character menu</button>
+                <button class="js-button-display-favorite-character">Display favorite characters</button><br><br>
                 <button class="js-Test-reset-cookie-alert">Reset cookie alert</button>
             </div>
         </section>
@@ -46,12 +43,35 @@
                 
             <div class="buttons-container">
                 <button class="js-button-save-custom-character">Save custom character</button>
+                <button class="js-button-remove-character">Remove a character from favorites</button> 
+                <button class="js-remove-all-characters-from-favorites">Remove all characters from favorites</button>
+                <button class="js-update-a-favorite-character">Update a favorite character</button>
                 <button class="js-button-return">Return</button>
             </div>
 
             <p id="js-text-box-not-empty-warning">Fields cannot be empty</p>
             <p id="js-text-box-is-not-number-warning">Height and weight must be numbers</p>
             <p id="js-person-is-already-saved">The person has already been saved</p>
+        </section>
+
+        <section class="layout-remove-custom-character-container">
+            <div class="text-input-container">
+                <input type="text" placeholder="Enter name" class="text-input" id="js-update-remove-custom-character-name">
+            </div>
+            <div class="buttons-container remove-character-button-container">
+                <button class="js-button-remove-custom-character">Remove character</button>
+                <button class="js-button-cancel-remove-custom-character">Cancel</button>
+            </div>
+        </section>
+
+        <section class="layout-update-custom-character-container">
+            <div class="text-input-container">
+                <input type="text" placeholder="Enter name" class="text-input" id="js-update-remove-custom-character-name">
+            </div>
+            <div class="buttons-container update-character-button-container">
+                <button class="js-button-update-custom-character">Update character</button>
+                <button class="js-button-cancel-update-custom-character">Cancel</button>
+            </div>
         </section>
 
     </main>
