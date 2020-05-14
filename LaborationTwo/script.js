@@ -29,11 +29,11 @@ window.onload = function() {
 };
 
 async function listSWAPI() {
-    let counter = 1;
-    let url = `https://swapi.dev/api/people/?page=${counter}`;
-    let datalistSWAPI = document.querySelector("#list-SWAPI-characters");
+    let counter         = 1;
+    let url             = `https://swapi.dev/api/people/?page=${counter}`;
+    let datalistSWAPI   = document.querySelector("#list-SWAPI-characters");
 
-    let json = await (await fetch(url)).json();
+    let json            = await (await fetch(url)).json();
 
     while (json.next){
 
@@ -51,10 +51,11 @@ async function listSWAPI() {
 }
 
 function buttonDisplayFavorite() {
-    let searchFavorties = document.querySelector(".js-button-display-favorite-character");
+    let searchFavorties         = document.querySelector(".js-button-display-favorite-character");
+    let informationPresenter    = document.querySelector("#js-information-presenter");
+
     searchFavorties.addEventListener("click", () => {
 
-        let informationPresenter = document.querySelector("#js-information-presenter");
         informationPresenter.innerHTML = "";
 
         let savedFavorites = JSON.parse(localStorage.getItem("savedFavorites") || "[]");
@@ -81,10 +82,12 @@ function buttonDisplayFavorite() {
 };
 
 function buttonDisplaySelectedCharacter() {
-    let displaySWAPI = document.querySelector(".js-button-display-SWAPI-character");
+    let displaySWAPI            = document.querySelector(".js-button-display-SWAPI-character");
+    let informationPresenter    = document.querySelector("#js-information-presenter");
+    let dropDownListSwapiInput  = document.querySelector("#js-textbox-SWAPI-characters");
+
     displaySWAPI.addEventListener("click", async () => {
-        let informationPresenter    = document.querySelector("#js-information-presenter");
-        let dropDownListSwapiInput  = document.querySelector("#js-textbox-SWAPI-characters");
+        
         let newPersonInformation    = document.createElement("li");
 
         informationPresenter.innerHTML = "";
@@ -128,16 +131,17 @@ function buttonDisplaySelectedCharacter() {
 };
 
 function buttonSaveCharacterFavorites() {
-    let saveCharacterToFavorites = document.querySelector(".js-button-save-character-to-fav");
+    let saveCharacterToFavorites    = document.querySelector(".js-button-save-character-to-fav");
+    let informationPresenter        = document.querySelector("#js-information-presenter");
+    let dropDownListSwapiInput      = document.querySelector("#js-textbox-SWAPI-characters");
+    let personNotSaved              = new Boolean(true);
+
     saveCharacterToFavorites.addEventListener("click", async () => {
         
         let savedFavorites              = JSON.parse(localStorage.getItem("savedFavorites") || "[]");
-        let informationPresenter        = document.querySelector("#js-information-presenter");
-        let dropDownListSwapiInput      = document.querySelector("#js-textbox-SWAPI-characters");
         let newInfo                     = document.createElement("li");
         let alreadySavedArray           = savedFavorites.map(person => person.name == dropDownListSwapiInput.value);
-        let personNotSaved              = new Boolean(true);
-
+        
         informationPresenter.innerHTML = "";
         
         for (let result of alreadySavedArray)
@@ -207,9 +211,9 @@ function buttonRemoveAllCharactersFromFavorites() {
 };
 
 function buttonRemoveCharacterMenu(){
-    let layoutRemoveCustomCharacterContainer      = document.querySelector(".layout-remove-custom-character-container");
-    let layoutCustomCharacterContainer                  = document.querySelector(".layout-custom-character-container");
-    let removeCharacterFromFavorites                    = document.querySelector(".js-button-remove-character");
+    let layoutRemoveCustomCharacterContainer    = document.querySelector(".layout-remove-custom-character-container");
+    let layoutCustomCharacterContainer          = document.querySelector(".layout-custom-character-container");
+    let removeCharacterFromFavorites            = document.querySelector(".js-button-remove-character");
 
     removeCharacterFromFavorites.addEventListener("click", () => {
         layoutRemoveCustomCharacterContainer.style.display = "grid";
@@ -294,7 +298,6 @@ function buttonSaveNewCustomCharacter() {
     let textBoxNotEmptyWarning      = document.querySelector("#js-text-box-not-empty-warning");
     let textBoxIsNotNumberWarning   = document.querySelector("#js-text-box-is-not-number-warning");
     let personHasAlreadyBeenSaved    = document.querySelector("#js-person-is-already-saved");
-    
     let saveCustomCharacter     = document.querySelector(".js-button-save-custom-character");
 
     saveCustomCharacter.addEventListener("click", () => {
@@ -421,10 +424,6 @@ function buttonsUpdateFavoriteCharacter() {
         layoutCustomCharacterContainer.style.display = "none";
         layoutUpdateSearchCustomCharacterContainer.style.display = "grid";
 
-    });
-
-    textBoxSearchCustomName.addEventListener("blur", () => {
-        addInputWarningToTextbox(textBoxSearchCustomName, textBoxSearchCustomNameEmptyWarning, personHasAlreadyBeenSaved);
     });
 
     updateSearchCharacterButton.addEventListener("click", () => {
