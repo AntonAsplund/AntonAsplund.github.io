@@ -57,7 +57,7 @@ function buttonDisplayFavorite() {
     searchFavorties.addEventListener("click", () => {
 
         informationPresenter.innerHTML = "";
-
+        let newPersonInformation    = document.createElement("li");
         let savedFavorites = JSON.parse(localStorage.getItem("savedFavorites") || "[]");
 
         if(savedFavorites.length) {
