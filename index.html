@@ -9,42 +9,59 @@
 
   </head>
 <body>
-<h1>Consider this presentational page as a scrap paper. </h1>
 
+<section id="main-layout-container">
 
-<h2>This is me:</h2>
-<p class="PersonInfo"> <img  src="Assets/IMG_-9afxgbhhh.jpg" alt="Picture of Anton Asplund at öströö får farm" class="FrontImage floatleft"> "After 10 years with the private security busisness, I felt a need for new challenges. Within me there has always been a curiosty towards the inner workings of things, along with a great interest for electronics and computers. To combine this with an education to become a .Net system developer, felt and still feels as the right choice for me."  </p>
+  <div id="personal-info">
+    <img src="Assets/IMG_-9afxgbhhh.jpg" alt="Picture of Anton Asplund" class="FrontImage">
+    <p> Hello there! My name is Anton Asplund and I'm an aspiring <span id="net-span">.NET</span> devloper</p>
+  </div>
+  
 
-<table>
-  <tr>
-    <td class="FirstRow">Name: </td>
-    <td>Anton Asplund</td>
-  </tr>
-  <tr>
-    <td class="FirstRow">Date of birth:</td>
-    <td>1988-02-25</td>
-  </tr>
-  <tr>
-    <td class="FirstRow">Accomodations:</td>
-    <td>Villa, Varberg - <a href="https://goo.gl/maps/rgThxxmK6UCSTzK18" target="_blank"><img src="Assets/googleMapsIcon.png" style="width: 1em; height: 1em;"></a></td>
-  </tr>
-  <tr>
-    <td class="FirstRow">Family:</td>
-    <td>Fiancée and 2 children (Hugo 6y och Stina 3y)</td>
-  </tr>
-  <tr>
-    <td class="FirstRow">Personal pages:</td>
-    <td><a href="https://github.com/AntonAsplund" target="_blank">Github</a></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><a href="https://www.linkedin.com/in/anton-asplund-b162251a3/" target="_blank">Linkedin</a></td>
-  </tr>
-</table>
+  <div id="buttons-container">
+    <button id="buttton-my-portfolio" >
+      My portfolio
+    </button>
+    <button id="button-about-me">
+      About me
+    </button>
+    <button id="button-contact">
+      Contact
+    </button>
+  </div>
 
-<section id="schoolassignments">
-  <p>A dummy onlinestore selling products. </p>
-  <a href="LaborationOne/landingpage.html" target="_blank" id="jsButonLaborationOne">Laboration One - </a>  <br>
-  <a href="LaborationTwo/starwarsWebApp.html" target="_blank" id="jsButtonLaborationTwo">Laboration Two</a> 
 </section>
+
+<section id="portfolio-container">
+  <h2>
+    My portfolio
+  </h2>
+
+  <ul id="portfolio-cards-container">
+    <li>
+      <a href="LaborationOne/landingpage.html" target="_blank">
+        <img src="Assets/printScreenMRELand.jpg" alt="Printscreen of MRELandwebpage" class="webpage-printscreen">
+      </a>
+      <p>School assignment where a fictive webshop is selling products. Page is responsive with mobile and computer screen sizes</p>
+    </li>
+    <li>
+      <a href="LaborationTwo/starwarsWebApp.html" target="_blank">
+        <img src="Assets/printScreenStarWarsAPIApp.jpg" alt="Printscreen of StarWarsAPIApp" class="webpage-printscreen">
+      </a>
+      <p>School assignment where a web app interacts with SWAPI (Star Wars API), and presents the info on the screen. Option to add your own personal favorites to a favorites list.</p>
+    </li>
+  </ul>
+
+  <button id="return-from-portfolio">Return</button>
+</section>
+
+<section id="about-me-container">
+
+</section>
+
+<section id="contact-container">
+
+</section>
+
+
 </body>
