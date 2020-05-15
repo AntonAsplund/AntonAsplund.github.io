@@ -88,9 +88,7 @@ body {
 }
 
 #portfolio-cards-container img{
-    width: 30em;
     max-height: 100%;
-    grid-area: 1 / 1 / span 2 / span 1;
 }
 
 #portfolio-cards-container p{
@@ -100,9 +98,16 @@ body {
 }
 
 #portfolio-cards-container a{
-    width: 30em;
     height: 15em;
     grid-area: 1 / 1 / span 2 / span 1;
+}
+
+#portfolio-cards-container li:nth-of-type(odd) p{
+    grid-area: 1 / 1 
+}
+
+#portfolio-cards-container li:nth-of-type(odd) a{
+    grid-area: 1 / 2 / span 2 / span 1;
 }
 
 #return-from-portfolio {
