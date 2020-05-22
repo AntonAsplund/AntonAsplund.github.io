@@ -1,5 +1,20 @@
 body {
-    background-color: #131111;
+    /*background-color: #131111;*/
+    background-image: url('./Assets/BackgroundMain.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#background-box {
+    top: 5vh;
+    bottom: 10vh;
+    background-color: rgb(128, 128, 128, 0.7);
+    position: relative;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
 }
 
 .FrontImage {
@@ -27,7 +42,8 @@ body {
 
 #personal-info > p{
     font-size: 3em;
-    color: #add8e6;
+    /*color: #add8e6;*/
+    color: black;
     width: 20em;
     margin: 1em;
 }
