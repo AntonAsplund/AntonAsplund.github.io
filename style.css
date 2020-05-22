@@ -97,6 +97,7 @@ ul {
     grid-area: 3 / 3 ;
     cursor: pointer;
     margin: auto;
+    list-style: none;
 }
 
 /*Portfolio Section*/
