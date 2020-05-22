@@ -157,6 +157,10 @@ body {
     font-family: 'Helvetica', 'Arial Narrow', Arial, sans-serif;
 }
 
+#contact-cards-container {
+    grid-area: 2 / 2 / span 1 / span 3;
+}
+
 #contact-container > .buttons-container {
     grid-area: 3 / 2 / span 1 / span 3;
     text-align: center;
@@ -165,12 +169,17 @@ body {
     margin-top: 1em;
 }
 
-#contact-cards-container{
-    font-size: 2em;
+#contact-cards-container li {
+
+    display: grid;
+    margin: 2em;
+    border-bottom: 1px solid white;
     color: #add8e6;
-    width: 20em;
-    margin: 1em;
-    grid-area: 2 / 3;
-    list-style-type: none;
-    left: 0em;
+    height: 20em;
+}
+
+#contact-cards-container > li > pre {
+    grid-area: 1 / 1 ; 
+    font-size: 3em;
+
 }

@@ -8,92 +8,93 @@
     <script src="script.js"></script>
 
   </head>
-<body>
+  <body>
+    <section id="background-box">
+      <section id="main-layout-container">
 
-<section id="main-layout-container">
+        <div id="personal-info">
+          <img src="Assets/IMG_-9afxgbhhh.jpg" alt="Picture of Anton Asplund" class="FrontImage">
+          <p> Hello there! My name is Anton Asplund and I'm an aspiring <span id="net-span">.NET</span> devloper</p>
+        </div>
+        
 
-  <div id="personal-info">
-    <img src="Assets/IMG_-9afxgbhhh.jpg" alt="Picture of Anton Asplund" class="FrontImage">
-    <p> Hello there! My name is Anton Asplund and I'm an aspiring <span id="net-span">.NET</span> devloper</p>
-  </div>
-  
+        <div class="buttons-container">
+          <button id="buttton-my-portfolio" >
+            My portfolio
+          </button>
+          <button id="button-about-me">
+            About me
+          </button>
+          <button id="button-contact">
+            Contact
+          </button>
+        </div>
 
-  <div class="buttons-container">
-    <button id="buttton-my-portfolio" >
-      My portfolio
-    </button>
-    <button id="button-about-me">
-      About me
-    </button>
-    <button id="button-contact">
-      Contact
-    </button>
-  </div>
+      </section>
 
-</section>
+      <section id="portfolio-container">
+        <h2>
+          My portfolio
+        </h2>
 
-<section id="portfolio-container">
-  <h2>
-    My portfolio
-  </h2>
+        <ul id="portfolio-cards-container">
+          <li>
+            <a href="LaborationOne/landingpage.html" target="_blank">
+              <img src="Assets/printScreenMRELand.jpg" alt="Printscreen of MRELandwebpage" class="webpage-printscreen">
+            </a>
+            <p>School assignment where a fictive webshop is selling products. Page is responsive with mobile and computer screen sizes</p>
+          </li>
+          <li>
+            <a href="LaborationTwo/starwarsWebApp.html" target="_blank">
+              <img src="Assets/printScreenStarWarsAPIApp.jpg" alt="Printscreen of StarWarsAPIApp" class="webpage-printscreen">
+            </a>
+            <p>School assignment where a web app interacts with SWAPI (API serving starwars information), and presents the info on the screen. Option to add your own personal favorites to a favorites list.</p>
+          </li>
+        </ul>
 
-  <ul id="portfolio-cards-container">
-    <li>
-      <a href="LaborationOne/landingpage.html" target="_blank">
-        <img src="Assets/printScreenMRELand.jpg" alt="Printscreen of MRELandwebpage" class="webpage-printscreen">
-      </a>
-      <p>School assignment where a fictive webshop is selling products. Page is responsive with mobile and computer screen sizes</p>
-    </li>
-    <li>
-      <a href="LaborationTwo/starwarsWebApp.html" target="_blank">
-        <img src="Assets/printScreenStarWarsAPIApp.jpg" alt="Printscreen of StarWarsAPIApp" class="webpage-printscreen">
-      </a>
-      <p>School assignment where a web app interacts with SWAPI (Star Wars API), and presents the info on the screen. Option to add your own personal favorites to a favorites list.</p>
-    </li>
-  </ul>
+        <div class="buttons-container">
+          <button id="return-from-portfolio">Return</button>
+        </div>
+      </section>
 
-  <div class="buttons-container">
-    <button id="return-from-portfolio">Return</button>
-  </div>
-</section>
+      <section id="about-me-container">
+        <h2>
+          About me
+        </h2>
 
-<section id="about-me-container">
-  <h2>
-    About me
-  </h2>
+        <ul id="about-me-cards-container">
+          <li>
 
-  <ul id="about-me-cards-container">
-    <li>
-
-    </li>
-
-
-  </ul>
-
-  <div class="buttons-container">
-    <button id="return-from-about-me">Return</button>
-  </div>
-</section>
-
-<section id="contact-container">
-  <h2>
-    Contact
-  </h2>
-
-  <ul id="contact-cards-container">
-    <li>
-      <pre>
-        Name: Anton Asplund
-        Adress: Backagårdsvägen 12, 432 47 Varberg
-        Telephone number: 0702895997
-      </pre>
-    </li>
-  </ul>
-
-  <div class="buttons-container">
-    <button id="return-from-contact">Return</button>
-  </div>
-</section>
+          </li>
 
 
-</body>
+        </ul>
+
+        <div class="buttons-container">
+          <button id="return-from-about-me">Return</button>
+        </div>
+      </section>
+
+      <section id="contact-container">
+        <h2>
+          Contact
+        </h2>
+
+        <ul id="contact-cards-container">
+          <li>
+            <pre>
+              Name: Anton Asplund
+              Adress: Backagårdsvägen 12, 432 47 Varberg
+              Telephone number: 0702895997
+            </pre>
+          </li>
+        </ul>
+
+        <div class="buttons-container">
+          <button id="return-from-contact">Return</button>
+        </div>
+      </section>
+    </section>
+
+  </body>
+</html>
