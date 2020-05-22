@@ -20,6 +20,7 @@ body {
 
 ul {
     padding-inline-start: 0px;
+    list-style: none;
 }
 
 .FrontImage {
@@ -97,7 +98,6 @@ ul {
     grid-area: 3 / 3 ;
     cursor: pointer;
     margin: auto;
-    list-style: none;
 }
 
 /*Portfolio Section*/
