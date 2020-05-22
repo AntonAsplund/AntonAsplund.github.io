@@ -193,7 +193,6 @@ ul {
     display: grid;
     margin: 2em;
     border-bottom: 1px solid #add8e6;
-    height: 20em;
 }
 
 #contact-cards-container > li > pre {
