@@ -1,5 +1,4 @@
 body {
-    /*background-color: #131111;*/
     background-image: url('./Assets/BackgroundMain.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -100,6 +99,13 @@ ul {
     margin-top: 1em;
 }
 
+#attribution {
+    position: absolute;
+    left: 1em;
+    bottom: 1em;
+    background-color: rgb(128, 128, 128, 0.2);
+}
+
 /*Portfolio Section*/
 
 #portfolio-container {
@@ -119,6 +125,11 @@ ul {
     padding-bottom: 2em;
     border-bottom: 1px solid #add8e6;
     height: 20em;
+}
+
+#portfolio-cards-container li:last-of-type{
+    border-bottom: none;
+    padding-bottom: 0em;;
 }
 
 #portfolio-cards-container img{
@@ -185,8 +196,6 @@ ul {
     display: grid;
     margin: 2em;
     margin-top: 0em;
-    border-bottom: 1px solid #add8e6;
-    padding-bottom: 1em;
 }
 
 #contact-cards-container > li > p {
