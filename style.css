@@ -36,19 +36,17 @@ ul {
 #main-layout-container {
     display: grid;
     grid-template-columns: 1fr 20vw 20vw 20vw 1fr;
-    margin-top: 20vh;
     font-family: 'Helvetica', 'Arial Narrow', Arial, sans-serif;
 }
 
 #personal-info {
     grid-area: 1 / 2 / span 1 / span 3;
-    left: 7em;
+    text-align: center;
     position: relative;
 }
 
 #personal-info > p{
     font-size: 3em;
-    width: 20em;
     margin: 1em;
 }
 
@@ -95,9 +93,11 @@ ul {
 }
 
 #portfolio-container .buttons-container, #about-me-container .buttons-container, #contact-container .buttons-container{
-    grid-area: 3 / 3 ;
-    cursor: pointer;
-    margin: auto;
+    grid-area: 3 / 2 / span 1 / span 3;
+    text-align: center;
+    border-top: 1px solid #add8e6;
+    padding-top: 1em;
+    margin-top: 1em;
 }
 
 /*Portfolio Section*/
@@ -105,7 +105,6 @@ ul {
 #portfolio-container {
     display: none;
     grid-template-columns: 1fr 20vw 20vw 20vw 1fr;
-    margin-top: 10vh;
     font-family: 'Helvetica', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -155,24 +154,25 @@ ul {
 #about-me-container {
     display: none;
     grid-template-columns: 1fr 20vw 20vw 20vw 1fr;
-    margin-top: 10vh;
     font-family: 'Helvetica', 'Arial Narrow', Arial, sans-serif;
 }
 
-#about-me-container > .buttons-container {
-    grid-area: 3 / 2 / span 1 / span 3;
-    text-align: center;
-    border-top: 1px solid #add8e6;
-    padding-top: 1em;
-    margin-top: 1em;
+#about-me-cards-container {
+    grid-area: 2 / 2 / span 1 / span 3;
 }
+
+#about-me-cards-container > li > p {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 0em;
+}
+
 
 /*Contact Section*/
 
 #contact-container {
     display: none;
     grid-template-columns: 1fr 20vw 20vw 20vw 1fr;
-    margin-top: 10vh;
     font-family: 'Helvetica', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -180,23 +180,101 @@ ul {
     grid-area: 2 / 2 / span 1 / span 3;
 }
 
-#contact-container > .buttons-container {
-    grid-area: 3 / 2 / span 1 / span 3;
-    text-align: center;
-    border-top: 1px solid #add8e6;
-    padding-top: 1em;
-    margin-top: 1em;
-}
-
 #contact-cards-container li {
-
+    grid-template-columns: 1fr 1fr;
     display: grid;
     margin: 2em;
+    margin-top: 0em;
     border-bottom: 1px solid #add8e6;
+    padding-bottom: 1em;
 }
 
-#contact-cards-container > li > pre {
-    grid-area: 1 / 1 ; 
-    font-size: 3em;
+#contact-cards-container > li > p {
+    grid-area: 1 / 2 ; 
+    font-size: 2em;
+    margin-top: 0em;
+    margin-left: 0.5em;
+}
 
+.mapouter{
+    grid-area: 1 / 1;
+    position:relative;
+    text-align:center;
+}
+
+.gmap_canvas {
+    overflow:hidden;
+    background:none;
+}
+
+iframe {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+@media (hover: none) and (pointer: coarse) {
+
+    /*Main layout @media section*/
+
+    #main-layout-container {
+        margin-top: -10vh;
+    }
+
+    /*Portfolio @media Section*/
+
+    #portfolio-container {
+        margin-top: -10vh;
+    }
+
+    #portfolio-cards-container li {
+        grid-template-columns: 1fr;
+        height: 100%;
+        text-align: center;
+    }
+
+    #portfolio-cards-container p{
+        font-size: 2em;
+        width: 100%;
+        grid-area: 2 / 1 
+    }
+    
+    #portfolio-cards-container a{
+        height: 15em;
+        grid-area: 1 / 1 ;
+        margin-bottom: 1em;
+    }
+    
+    #portfolio-cards-container li:nth-of-type(odd) p{
+        grid-area: 2 / 1 
+    }
+    
+    #portfolio-cards-container li:nth-of-type(odd) a{
+        grid-area: 1 / 1 ;
+    }
+
+    /*About me @media Section*/
+
+    #about-me-container {
+        margin-top: -10vh;
+    }
+
+    /*Contact @media Section*/
+
+    #contact-container {
+        margin-top: -10vh;
+    }
+
+    #contact-cards-container li {
+        grid-template-columns: 1fr;
+    }
+
+    #contact-cards-container > li > p {
+        grid-area: 2 / 1 ; 
+        margin-top: 1em;
+        font-size: 2em;
+    }
+
+    .mapouter{
+        grid-area: 1 / 1;
+    }
 }
