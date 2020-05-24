@@ -226,6 +226,12 @@ iframe {
 
     /*Main layout @media section*/
 
+    .FrontImage {
+        float: none;
+        width: 50vw;
+        max-height: 100%;
+    }
+
     #main-layout-container {
         margin-top: -10vh;
     }
