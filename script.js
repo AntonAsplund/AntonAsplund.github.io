@@ -4,9 +4,7 @@ window.onload = function() {
 
     let hasVisited = JSON.parse(localStorage.getItem("hasVisited"))
 
-    if(hasVisited) {
-        alert("Welcome back!");
-    } else {
+    if(!hasVisited) {
         alert("This page uses cookies. By continuing you accept the use of these to store a list of favorite characters. The information will only be used by the web application and not by any third party.");
         hasVisited = "true";
         localStorage.setItem("hasVisited", JSON.stringify(hasVisited));
