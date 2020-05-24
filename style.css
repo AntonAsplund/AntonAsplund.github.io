@@ -221,7 +221,7 @@ iframe {
     max-height: 100%;
 }
 
-@media (hover: none) and (pointer: coarse) {
+@media (pointer: coarse) {
 
     /*Main layout @media section*/
 
