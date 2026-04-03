@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Påskjakt 🐣</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --moss:  #4a7050;
+      --cream: #faf4e1;
+      --soft:  #f0e8c8;
+      --text:  #2d3820;
+    }
+    html, body { background: var(--cream); color: var(--text); font-family: 'Lora', serif; }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      background: linear-gradient(160deg, #e8f5e0, var(--cream) 70%);
+      border-bottom: 2px solid #c8ddb0;
+    }
+    header .flowers { font-size: 1.5rem; letter-spacing: .4rem; opacity: .7; }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-style: italic; color: var(--moss); margin: .3rem 0;
+    }
+    header p { color: #6a7a50; font-size: .95rem; font-style: italic; }
+
+    .tabs-wrap { max-width: 980px; margin: 0 auto; padding: 0 1rem 3rem; }
+
+    .tab-bar {
+      display: flex; justify-content: center; gap: .5rem;
+      padding: 1.3rem 1rem 0; flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: white; border: 2px solid #c8ddb0; border-bottom: none;
+      border-radius: 10px 10px 0 0; padding: .55rem 1.5rem;
+      font-family: 'Lora', serif; font-size: .92rem; font-weight: 600;
+      color: #7a8a60; cursor: pointer; transition: all .2s;
+    }
+    .tab-btn:hover { background: var(--soft); color: var(--moss); }
+    .tab-btn.active {
+      background: var(--soft); color: var(--moss);
+      border-color: var(--moss); border-bottom: 2px solid var(--soft);
+      position: relative; z-index: 2;
+    }
+    .tab-panel {
+      display: none; background: var(--soft);
+      border: 2px solid var(--moss); border-radius: 0 12px 12px 12px;
+      padding: 1.8rem 1.5rem 2rem; animation: fadein .3s ease;
+    }
+    .tab-panel.active { display: block; }
+    @keyframes fadein { from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none} }
+
+    .panel-title {
+      font-family: 'Playfair Display', serif; font-size: 1.2rem;
+      color: var(--moss); margin-bottom: 1.2rem;
+    }
+    .map-wrap { width: 100%; overflow: auto; }
+    svg.map { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+
+    .egg-m { cursor: pointer; }
+    .egg-m:hover circle { opacity: 1 !important; }
+
+    #tooltip {
+      position: fixed; background: var(--moss); color: white;
+      padding: .55rem 1.1rem; border-radius: 8px; font-size: .88rem;
+      pointer-events: none; opacity: 0; transition: opacity .2s;
+      z-index: 100; font-family: 'Lora',serif;
+      max-width: 240px; text-align: center; line-height: 1.4;
+    }
+    #tooltip.show { opacity: 1; }
+    footer { text-align:center; font-size:.78rem; color:#9aaa80; padding:1.5rem; font-style:italic; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="flowers">🌸 🐣 🌿 🌼 🐇</div>
+  <h1>Påskäggjakt</h1>
+  <p>Hitta alla gömda ägg — lycka till!</p>
+</header>
+
+<div class="tabs-wrap">
+  <!-- ══════════ YARD ══════════ -->
+  <div class="tab-panel active" id="tab-yard">
+    <div class="panel-title">🌳 Trädgårdskartan</div>
+    <div class="map-wrap">
+      <svg class="map" viewBox="0 0 620 660" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grass" patternUnits="userSpaceOnUse" width="14" height="14">
+            <rect width="14" height="14" fill="#cde8b0"/>
+            <line x1="7" y1="14" x2="7" y2="9" stroke="#a0c87a" stroke-width="1.2"/>
+            <line x1="2" y1="14" x2="2" y2="10" stroke="#a0c87a" stroke-width=".9"/>
+            <line x1="12" y1="14" x2="12" y2="10" stroke="#a0c87a" stroke-width=".9"/>
+          </pattern>
+          <pattern id="gravel" patternUnits="userSpaceOnUse" width="9" height="9">
+            <rect width="9" height="9" fill="#ddd4b8"/>
+            <circle cx="2.5" cy="2.5" r="1" fill="#c8be9a"/>
+            <circle cx="6.5" cy="6" r=".8" fill="#cfc5a5"/>
+          </pattern>
+          <filter id="sh"><feDropShadow dx="1.5" dy="1.5" stdDeviation="2.5" flood-opacity=".18"/></filter>
+        </defs>
+
+        <polygon points="70,50 520,50 555,95 555,610 70,610"
+          fill="url(#grass)" stroke="#558040" stroke-width="3"/>
+
+        <!-- Right hedge -->
+        <g fill="#4e7838" opacity=".88">
+          <ellipse cx="553" cy="110" rx="14" ry="10"/><ellipse cx="553" cy="134" rx="13" ry="9"/>
+          <ellipse cx="553" cy="158" rx="14" ry="10"/><ellipse cx="553" cy="182" rx="13" ry="9"/>
+          <ellipse cx="553" cy="206" rx="14" ry="10"/><ellipse cx="553" cy="230" rx="13" ry="9"/>
+          <ellipse cx="553" cy="254" rx="14" ry="10"/><ellipse cx="553" cy="278" rx="13" ry="9"/>
+          <ellipse cx="553" cy="302" rx="14" ry="10"/><ellipse cx="553" cy="326" rx="13" ry="9"/>
+          <ellipse cx="553" cy="350" rx="14" ry="10"/><ellipse cx="553" cy="374" rx="13" ry="9"/>
+          <ellipse cx="553" cy="398" rx="14" ry="10"/><ellipse cx="553" cy="422" rx="13" ry="9"/>
+          <ellipse cx="553" cy="446" rx="14" ry="10"/><ellipse cx="553" cy="470" rx="13" ry="9"/>
+          <ellipse cx="553" cy="494" rx="14" ry="10"/><ellipse cx="553" cy="518" rx="13" ry="9"/>
+          <ellipse cx="553" cy="542" rx="14" ry="10"/><ellipse cx="553" cy="566" rx="13" ry="9"/>
+          <ellipse cx="553" cy="590" rx="14" ry="10"/>
+        </g>
+        <!-- Top hedge -->
+        <g fill="#4e7838" opacity=".85">
+          <ellipse cx="105" cy="58" rx="12" ry="8"/><ellipse cx="138" cy="54" rx="12" ry="8"/>
+          <ellipse cx="171" cy="52" rx="12" ry="8"/><ellipse cx="204" cy="51" rx="12" ry="8"/>
+          <ellipse cx="237" cy="51" rx="12" ry="8"/><ellipse cx="270" cy="51" rx="12" ry="8"/>
+          <ellipse cx="303" cy="51" rx="12" ry="8"/><ellipse cx="336" cy="51" rx="12" ry="8"/>
+          <ellipse cx="369" cy="51" rx="12" ry="8"/><ellipse cx="402" cy="52" rx="12" ry="8"/>
+          <ellipse cx="435" cy="52" rx="12" ry="8"/><ellipse cx="466" cy="54" rx="12" ry="8"/>
+          <ellipse cx="495" cy="57" rx="12" ry="8"/><ellipse cx="519" cy="66" rx="12" ry="10"/>
+          <ellipse cx="538" cy="80" rx="10" ry="12"/>
+        </g>
+
+        <!-- Driveway -->
+        <polygon points="70,50 315,50 430,320 380,330 70,330"
+          fill="url(#gravel)" stroke="#b0a070" stroke-width="1.5" opacity=".75"/>
+
+        <!-- Garage -->
+        <rect x="80" y="350" width="155" height="165" rx="4"
+          fill="#e8dcc4" stroke="#8a7a58" stroke-width="2.2" filter="url(#sh)"/>
+        <line x1="89" y1="470" x2="228" y2="470" stroke="#b8a880" stroke-width="1.2"/>
+        <line x1="89" y1="457" x2="228" y2="457" stroke="#b8a880" stroke-width="1.2"/>
+        <line x1="89" y1="444" x2="228" y2="444" stroke="#b8a880" stroke-width="1.2"/>
+        <line x1="89" y1="431" x2="228" y2="431" stroke="#b8a880" stroke-width="1.2"/>
+        <line x1="89" y1="418" x2="228" y2="418" stroke="#b8a880" stroke-width="1.2"/>
+        <text x="157" y="395" text-anchor="middle" font-family="Lora,serif" font-weight="600" font-size="15" fill="#5a4a28">Garage</text>
+
+        <!-- House -->
+        <rect x="238" y="390" width="220" height="190" rx="4"
+          fill="#f0e8cc" stroke="#8a7a58" stroke-width="2.5" filter="url(#sh)"/>
+        <text x="348" y="492" text-anchor="middle" font-family="Lora,serif" font-weight="600" font-size="16" fill="#5a4a28">Huset</text>
+
+        <!-- Porch + steps -->
+        <rect x="268" y="340" width="160" height="58" rx="3"
+          fill="#e0d4a8" stroke="#8a7a58" stroke-width="1.8"/>
+        <rect x="280" y="330" width="136" height="11" rx="2" fill="#d4c89a" stroke="#9a8a68" stroke-width="1"/>
+        <rect x="292" y="321" width="112" height="10" rx="2" fill="#c8be90" stroke="#9a8a68" stroke-width="1"/>
+        <rect x="304" y="313" width="88" height="9" rx="2" fill="#beb488" stroke="#9a8a68" stroke-width="1"/>
+        <text x="348" y="373" text-anchor="middle" font-family="Lora,serif" font-size="10" fill="#6a5a38" font-style="italic">Veranda</text>
+
+        <!-- Greenhouse -->
+        <rect x="70" y="555" width="88" height="52" rx="3"
+          fill="#d0eed0" stroke="#5a9055" stroke-width="2" filter="url(#sh)"/>
+        <line x1="92" y1="555" x2="92" y2="607" stroke="#7ac878" stroke-width="1" opacity=".6"/>
+        <line x1="114" y1="555" x2="114" y2="607" stroke="#7ac878" stroke-width="1" opacity=".6"/>
+        <line x1="136" y1="555" x2="136" y2="607" stroke="#7ac878" stroke-width="1" opacity=".6"/>
+        <line x1="70" y1="580" x2="158" y2="580" stroke="#7ac878" stroke-width="1" opacity=".6"/>
+        <text x="114" y="572" text-anchor="middle" font-family="Lora,serif" font-weight="600" font-size="10" fill="#2a5828">Växthus</text>
+
+        <!-- Tree -->
+        <ellipse cx="210" cy="215" rx="52" ry="48" fill="#6cb850" opacity=".82"/>
+        <ellipse cx="224" cy="198" rx="34" ry="30" fill="#84cc64" opacity=".78"/>
+        <ellipse cx="195" cy="206" rx="26" ry="24" fill="#90d070" opacity=".70"/>
+        <rect x="203" y="255" width="14" height="30" fill="#7a5428" rx="2"/>
+
+        <!-- Car -->
+        <g transform="translate(148,223)">
+          <rect x="0" y="12" width="76" height="32" rx="7" fill="#b0c0cc" stroke="#7890a0" stroke-width="1.5"/>
+          <rect x="10" y="0" width="54" height="22" rx="6" fill="#c8dce8" stroke="#7890a0" stroke-width="1.2"/>
+          <rect x="13" y="3" width="21" height="14" rx="3" fill="#daeef8" opacity=".85" stroke="#7890a0" stroke-width=".8"/>
+          <rect x="38" y="3" width="21" height="14" rx="3" fill="#daeef8" opacity=".85" stroke="#7890a0" stroke-width=".8"/>
+          <circle cx="15" cy="44" r="8" fill="#333" stroke="#111" stroke-width="1"/>
+          <circle cx="15" cy="44" r="4" fill="#777"/>
+          <circle cx="61" cy="44" r="8" fill="#333" stroke="#111" stroke-width="1"/>
+          <circle cx="61" cy="44" r="4" fill="#777"/>
+        </g>
+
+        <!-- EGG MARKER -->
+        <g class="egg-m"
+           onmouseenter="showTip(event,'🥚 Äggen gömmer sig i bilens bagagelucka!')"
+           onmouseleave="hideTip()"
+           onclick="showTip(event,'🥚 Äggen gömmer sig i bilens bagagelucka!')">
+          <circle cx="212" cy="245" r="18" fill="#d63030" stroke="white" stroke-width="3" opacity=".9"/>
+          <text x="212" y="253" text-anchor="middle" font-size="17">❌</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+
+</div>
+
+<div id="tooltip"></div>
+<footer>🐣 Glad Påsk! 🌷 Må det bästa äggjägarlaget vinna!</footer>
+
+<script>
+  function showTab(name, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+  const tip = document.getElementById('tooltip');
+  function showTip(e, msg) { tip.textContent = msg; tip.classList.add('show'); pos(e); }
+  function hideTip() { tip.classList.remove('show'); }
+  function pos(e) { tip.style.left=(e.clientX+14)+'px'; tip.style.top=(e.clientY-44)+'px'; }
+  document.addEventListener('mousemove', e => { if(tip.classList.contains('show')) pos(e); });
+</script>
+</body>
+</html>
